@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(require('./controllers/index'));
 
 // Find express in the client/javascript/build.js file
-app.use(express.static('client/build/javascript'));
+app.use(express.static('client/build'));
 
 // Server listens for requests on port 3000
 app.listen(3000, function () {
