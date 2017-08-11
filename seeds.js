@@ -294,7 +294,7 @@ db.pubs.insert([
         addressLine1: "8 Spittal Street",
         addressLine2: "",
         town: "Striling",
-        region: "Stirling",
+        region: "Stirlingshire",
         postCode: "FK8 1AT",  
         phone: "01786 460 317",
         email: "",
