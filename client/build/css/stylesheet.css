@@ -22,7 +22,7 @@
 }
 
 #search-bar{
-  background-image: url('search-icon.png');
+  background-image: url('../img/search-icon.png');
   background-repeat: no-repeat;
   padding: 12px 20px 12px 40px;
   width: 20%;
