@@ -69,3 +69,5 @@ MapWrapper.prototype.handleMarkerClick = function(){
 MapWrapper.prototype.setCenter = function(coords){
     this.googleMap.setCenter(coords);
 };
+
+module.exports = MapWrapper;

@@ -1,3 +1,5 @@
+var MapWrapper = require('./mapWrapper.js');
+
 // Start point for code that runs whenever the browser hits this page
 var app = function(){
     // Get a reference to an element rendered in index.html
