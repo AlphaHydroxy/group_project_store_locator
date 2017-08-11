@@ -4,6 +4,29 @@ var MapWrapper = function(container, center, zoomLevel){
         zoom: zoomLevel
     });
     this.markers = [];
+
+    // Sourced from: https://developers.google.com/maps/documentation/javascript/geolocation
+    // Try HTML5 geolocation.
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+        };
+
+        this.googleMap.setCenter(pos);
+        }, function() {
+        handleLocationError(true, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, map.getCenter());
+    };
+
+    function handleLocationError(browserHasGeolocation, pos) {
+        // Do stuff if use declines geolocation or something bad has happened
+        console.log("Geolocation error occurred");
+    };
 };
 
 MapWrapper.prototype.addMarker = function(coords, map){

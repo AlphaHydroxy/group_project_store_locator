@@ -13,7 +13,7 @@ var createMap = function(){
     var center = {lat: 54.606520, lng: -2.547321};
     var zoom = 18;
     var mainMap = new MapWrapper(mapDiv, center, zoom);
-}
+};
 
 // var onExampleElementChanged = function(){
 //     // Do stuff when exampleElement is changed
