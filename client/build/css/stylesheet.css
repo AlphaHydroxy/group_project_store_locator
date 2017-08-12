@@ -6,6 +6,7 @@
 html{
   height: 100%;
   width: 100%;
+  font-family: Cabin Sketch;
 }
 
 body{
@@ -31,6 +32,7 @@ body{
   margin-left: 25px;
   display: flex;
   align-items: center;
+  letter-spacing: 2px;
 }
 
 #nav-wrapper{
