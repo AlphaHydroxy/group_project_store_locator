@@ -50,10 +50,6 @@ body{
   width: 50%;
   height: 100%;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
   border-bottom: 4px #000000 solid;
 }
 
@@ -65,6 +61,7 @@ body{
 
 .nav-child{
   text-decoration: none;
+  margin: 0 auto;
   color: #FFFFFF;
   height: 45px;
   width: 100px;
@@ -72,8 +69,6 @@ body{
   justify-content: center;
   align-items: center;
   color: white;
-  margin-top: 0px;
-  margin: 1px 40px 1px 3px;
   -webkit-transition: .5s linear ;
   border-bottom: 4px #000000 solid;
 }
@@ -83,6 +78,17 @@ body{
   transition: .8s;
   border-bottom: 1px orange solid;
   cursor: pointer;
+}
+
+.nav-child li{
+  margin: 0 ;
+}
+
+#search-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
 #search-bar{
