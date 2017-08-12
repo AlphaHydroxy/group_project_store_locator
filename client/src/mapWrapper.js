@@ -16,14 +16,14 @@ var MapWrapper = function(container, center, zoomLevel){
 
         this.googleMap.setCenter(pos);
         }, function() {
-        handleLocationError(true, map.getCenter());
+        handleLocationError(true);
         });
     } else {
         // Browser doesn't support Geolocation
-        handleLocationError(false, map.getCenter());
+        handleLocationError(false);
     };
 
-    function handleLocationError(browserHasGeolocation, pos) {
+    function handleLocationError(browserHasGeolocation) {
         // Do stuff if use declines geolocation or something bad has happened
         console.log("Geolocation error occurred");
     };
