@@ -26,8 +26,6 @@ body{
   align-items: center;
   height: 200px;
   width: 100%;
-  background-color: #000000;
-  border-bottom: 1px #FFFFFF solid;
 }
 
 #page-logo{
@@ -42,7 +40,7 @@ body{
 
 #navbar{
   background-color: #000000;
-  border-bottom: 1px #FFFFFF solid;
+  border-bottom: 1px grey solid;
   width: 100%;
 }
 
@@ -50,7 +48,6 @@ body{
   width: 50%;
   height: 100%;
   margin: 0 auto;
-  border-bottom: 4px #000000 solid;
 }
 
 #drop-down{
@@ -86,16 +83,30 @@ body{
 
 #search-wrapper{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 200px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
 }
+
+#search-wrapper p{
+  font-size: 28px;
+  color: #FFFFFF;
+}
+
+#search-wrapper img{
+  padding: 20px;
+}
+
 
 #search-bar{
   padding: 12px 10px;
   font-size: 16px;
   border-radius: 30px;
-  margin: 0px 1px 0px 20px;
   color: grey;
   width: 250px;
   text-align: center;
@@ -129,10 +140,12 @@ input:focus{
 #page-flex-container{
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   font-size: 22px;
+  padding: 50px;
+  margin: 0 auto;
 }
 
 #pub-list-flex-container{
@@ -191,8 +204,9 @@ ul li {
 
 footer{
   text-align: center;
+  color: #FFFFFF;
   padding: 20px;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.8);
   margin-top: 20px;
 }
 
