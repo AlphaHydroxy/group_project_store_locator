@@ -9,6 +9,7 @@ html{
 }
 
 body{
+  background-image: url('../img/background-img.png');
   display: inline-flex;
   flex-direction: column;
   justify-content: space-between;
