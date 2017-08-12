@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Store Finder App</title>
+    <title>Pub Finder</title>
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
@@ -15,7 +15,7 @@
       <div id="nav-wrapper">
         <h1 id="app-title">Pub Finder</h1>
         <div id="search-login-wrapper">
-          <input id="search-bar" type="text" name="search" placeholder="enter postcode, town or city..."<span id="search-lg"></span>/>
+          <input id="search-bar" type="text" name="search" placeholder="enter postcode, town or city..."<span id="search-lg"></span>
           <div id="login-button">Log in</div>
         </div>
       </div>
@@ -33,9 +33,11 @@
           <li>wetherspoons@pub.com</li>
           <li>facilities</li>
           <li>Open today: 12am - 1am</li>
-          <details>
-            <summary>more opening times...</summary>
-            <ul>
+          <div id="btn-container">
+            <button onclick="toggleOpeningHours('opening-hours-panel')">More times...<span id="arrow">&#9662</span></button>
+          </div>
+          <div id="opening-hours-panel">
+            <ul id="slide-panel">
               <li>Mon 12pm - 1am</li>
               <li>Tue 12pm - 1am</li>
               <li>Wed 12pm - 1am</li>
@@ -44,11 +46,39 @@
               <li>Sat 12pm - 1am</li>
               <li>Sun 12pm - 1am</li>
             </ul>
-          </details>
+          </div>
           </ul>
           <br>
           <hr>
           <br>
+
+          <ul>
+            <li>Wetherspoons</li>
+            <li>2 St Vincent Place</li>
+            <li>Glasgow</li>
+            <li>G1 2DH</li>
+            <li>0141 123456</li>
+            <li>wetherspoons@pub.com</li>
+            <li>facilities</li>
+            <li>Open today: 12am - 1am</li>
+            <div id="btn-container">
+              <button onclick="toggleOpeningHours('opening-hours-panel')">More times...<span id="arrow">&#9662</span></button>
+            </div>
+            <div id="opening-hours-panel">
+              <ul id="slide-panel">
+                <li>Mon 12pm - 1am</li>
+                <li>Tue 12pm - 1am</li>
+                <li>Wed 12pm - 1am</li>
+                <li>Thu 12pm - 1am</li>
+                <li>Fri 12pm - 1am</li>
+                <li>Sat 12pm - 1am</li>
+                <li>Sun 12pm - 1am</li>
+              </ul>
+            </div>
+            </ul>
+            <br>
+            <hr>
+            <br>
 
           <ul>
             <li>2 St Vincent Place</li>
@@ -68,12 +98,7 @@
             <br>
             <hr>
             <br>
-            <ul>
-              <li>2 St Vincent Place</li>
-              <li>Glasgow</li>
-              <li>G1 2DH</li>
-              <li>Open today: 12am - 1am</li>
-            </ul>
+ 
       </div>
 
       <div id="map-flex-container">
@@ -81,5 +106,6 @@
       </div>
     </div>
       <footer>Davie&copy Daleo&copy Jia&copy</footer>
+      <script type="text/javascript" src="javascript/styles.js"></script>
   </body>
 </html>
