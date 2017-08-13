@@ -158,6 +158,7 @@ input:focus{
   flex-direction: column;
   margin: 0 auto;
   padding: 100px;
+  border: 1px grey solid;
 }
 
 img{
@@ -309,17 +310,49 @@ footer{
     border-radius: 0px;
   }
 
+  #page-flex-container{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
   #pub-list-flex-container{
     font-size: 16px;
     width: 100%;
+    padding: 15px;
+    border: 1px grey solid;
+  }
+
+  .pub-title{
+    font-size: 20px;
+    text-align: left;
   }
 
   #map-flex-container{
     height: 300px;
-    width: 300p;
+    width: 300px;
   }
 
   #map {
       height: 100%;
+  }
+}
+
+@media screen and (max-width: 360px){
+  #map-flex-container{
+    height: 200px;
+    width: 200px;
+  }
+
+  #map {
+      height: 100%;
+  }
+
+  #search-bar{
+    padding: 12px 10px;
+    font-size: 16px;
+    border-radius: 30px;
+    color: grey;
+    width: 150px;
+    text-align: center;
   }
 }
