@@ -1,5 +1,5 @@
-var toggleOpeningHours = function(x){
-  var panel = document.getElementById(x), navarrow = document.getElementById("navarrow"), maxHeight = "100px";
+var toggleOpeningHours = function(element){
+  var panel = document.getElementById(element), navarrow = document.getElementById("navarrow"), maxHeight = "200px";
   if(panel.style.height == maxHeight){
     panel.style.height = '0px';
     navarrow.innerHTML = "&#9662;";
@@ -10,4 +10,17 @@ var toggleOpeningHours = function(x){
   }
 }
 
-console.log("hello world");
+var toggleDropDown = function(element){
+  var menuPanel = document.getElementById(element);
+  var menuHeight = "169px";
+
+  if(menuPanel.style.height == menuHeight){
+    menuPanel.style.height = '0px';
+  }
+  else{
+    menuPanel.style.height = menuHeight;
+  }
+
+}
+
+console.log("client/build/javascript");
