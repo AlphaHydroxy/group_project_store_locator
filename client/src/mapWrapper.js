@@ -1,73 +1,104 @@
 var MapWrapper = function(container, center, zoomLevel){
-    this.googleMap = new google.maps.Map(container, {
+    this.markers = [];
+    this.map = new google.maps.Map(container, {
         center: center,
         zoom: zoomLevel
     });
-    this.markers = [];
+};
 
-    // Sourced from: https://developers.google.com/maps/documentation/javascript/geolocation
-    // Try HTML5 geolocation.
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
+MapWrapper.prototype.getMap = function(){
+    return this.map;
+};
+
+MapWrapper.prototype.getMarkers = function(){
+    return this.markers;
+};
+
+MapWrapper.prototype.addInitListener = function(callback){
+    // The shame. 
+    var self = this;
+
+    // addListenerOnce adds an event handler that will fire exactly once
+    // The Google Maps idle event happens when the map has been loaded
+    google.maps.event.addListenerOnce(this.map, 'idle', function(){
+
+        // Sourced from: https://developers.google.com/maps/documentation/javascript/geolocation
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+
+            navigator.geolocation.getCurrentPosition(
+                function(position) {
+
+                    // User's current position
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+
+                    console.log("Geolocation center is: " + pos.lat + ', ' + pos.lng);
+
+                    // Add a marker to indicate the user's position
+                    self.addMarker(pos);
+                    // Re-center the map at the user's co-ordinates
+                    self.setCenter(pos);
+                    // Set map zoom to show a decent area around the user
+                    self.setZoom(12);
+                }, 
+                function(error) {
+                    handleLocationError(error);
+                },
+                {timeout: 30000, enableHighAccuracy: true, maximumAge: 75000}
+            );
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false);
         };
 
-        this.googleMap.setCenter(pos);
-        }, function() {
-        handleLocationError(true, map.getCenter());
-        });
-    } else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, map.getCenter());
-    };
+        callback(self);
+    });
 
-    function handleLocationError(browserHasGeolocation, pos) {
-        // Do stuff if use declines geolocation or something bad has happened
-        console.log("Geolocation error occurred");
+    function handleLocationError(browserHasGeolocation) {
+        // Do stuff if user declines geolocation or something bad has happened
+        console.log("Geolocation error occurred. browserHasGeolocation is: " + browserHasGeolocation.message);
     };
 };
 
-MapWrapper.prototype.addMarker = function(coords, map){
+// Adds a marker to the map at the given co-ordinates
+MapWrapper.prototype.addMarker = function(coords){
     var marker = new google.maps.Marker({
         position: coords,
-        map: this.googleMap
+        map: this.map
     });
 
-    marker.addListener('click', this.handleMarkerClick);
     this.markers.push(marker);
-}
-
-MapWrapper.prototype.addClickEvent = function(){
-    google.maps.event.addListener(this.googleMap, 'click', function(event){
-        console.log(event.latLng.lng());
-        console.log(event.latLng.lat());
-
-        var coords = {
-            lat: event.latLng.lat(),
-            lng: event.latLng.lng()
-        };
-
-        // this.addMarker(coords, this.googleMap);
-    }.bind(this));
 };
 
-MapWrapper.prototype.bounceMarkers = function(){
-    this.markers.forEach(function(marker){
-        marker.setAnimation(google.maps.Animation.BOUNCE);
-    });
+// Removes all markers from the map
+MapWrapper.prototype.clearMarkers = function(){
+    for (var i = 0; i < this.markers.length; i++) {
+        this.markers[i].setMap(null);
+    };
+
+    this.markers = [];
 };
 
-
-// CORS request code based on: https://www.html5rocks.com/en/tutorials/cors/ 
-// Lightbulb/facepalm moment provided by: https://stackoverflow.com/a/23952300
-MapWrapper.prototype.handleMarkerClick = function(){
-    
-};
-
+// Moves the map center to the given co-ordinates
 MapWrapper.prototype.setCenter = function(coords){
-    this.googleMap.setCenter(coords);
+    this.map.setCenter(coords);
+};
+
+// Changes the map zoom level to the given value
+MapWrapper.prototype.setZoom = function(zoomLevel){
+    this.map.setZoom(zoomLevel);
+};
+
+// Sets a 'bounds changed' event handler on an autocomplete box
+// Event handler fires whenever the map boundaries change, allowing for 
+// better targeted search results
+MapWrapper.prototype.addBoundsChangedListener = function(autocomplete){
+    google.maps.event.addListener(this,'bounds_changed', function() {
+        autocomplete.bindTo(this, 'bounds');
+    });
 };
 
 module.exports = MapWrapper;

@@ -1,32 +1,119 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Store Finder App</title>
+    <title>Pub Finder</title>
+    <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-    <script src='https://maps.googleapis.com/maps/api/js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src='https://maps.googleapis.com/maps/api/js?libraries=places'></script>
     <script type="text/javascript" src="javascript/bundle.js"></script>
   </head>
 
-  <body>
-    <div id="nav-container">
-      <div id="nav-wrapper">
-        <h1 id="app-title">Pub Finder</h1>
-        <input id="search-bar" type="text" name="search">
-        <div id="search-button">search</div>
-        <div id="login-button">Log in</div>
+  <section id="navbar">
+    <nav id="nav-container">
+        <ul id="drop-down">
+          <a class="nav-child" href="#"><li>Home</li></a>
+          <a class="nav-child" href="#"><li>Contact Us</li></a>
+          <a class="nav-child" href="#"><li>Log In</li></a>
+        </ul>
+    </nav>
+    <div class="handle" onclick="toggleDropDown(this)">Menu
+      <div id="icon">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
+    </div>
+  </section>
+
+
+  <body>
+    <div id="logo">
+      <img id="page-logo" src="img/black_orange_logo.png">
+    </div>
+   
+
+    <div id="search-wrapper">
+      <p>Find pubs in Scotland</p>
+      <img src="img/scotland.png">
+      <input id="search-bar" type="text" name="search" placeholder="enter postcode, town or city..."<span id="search-lg"></span>
     </div>
 
     <div id="page-flex-container">
     
       <div id="pub-list-flex-container">
+        <h1>Wetherspoons</h1>
         <ul>
           <li>2 St Vincent Place</li>
           <li>Glasgow</li>
           <li>G1 2DH</li>
-        </ul>
+          <li>0141 123456</li>
+          <li>wetherspoons@pub.com</li>
+          <img src="img/facilities/baby_changing.png">
+          <img src="img/facilities/meeting_facilities.png">
+          <img src="img/facilities/step_free_access.png">
+          <img src="img/facilities/wifi.png">
+          <li>Open today: 12am - 1am</li>
+          <div id="btn-container">
+            <button onclick="toggleOpeningHours('opening-hours-panel')">More times...<span id="arrow">&#9662</span></button>
+          </div>
+          <div id="opening-hours-panel">
+            <ul id="slide-panel">
+              <li>Mon 12pm - 1am</li>
+              <li>Tue 12pm - 1am</li>
+              <li>Wed 12pm - 1am</li>
+              <li>Thu 12pm - 1am</li>
+              <li>Fri 12pm - 1am</li>
+              <li>Sat 12pm - 1am</li>
+              <li>Sun 12pm - 1am</li>
+            </ul>
+          </div>
+          </ul>
+          <br>
+
+          <h1>Wetherspoons</h1>
+          <ul>
+            <li>2 St Vincent Place</li>
+            <li>Glasgow</li>
+            <li>G1 2DH</li>
+            <li>0141 123456</li>
+            <li>wetherspoons@pub.com</li>
+            <li>facilities</li>
+            <li>Open today: 12am - 1am</li>
+            <div id="btn-container">
+              <button onclick="toggleOpeningHours('opening-hours-panel')">More times...<span id="arrow">&#9662</span></button>
+            </div>
+            <div id="opening-hours-panel">
+              <ul id="slide-panel">
+                <li>Mon 12pm - 1am</li>
+                <li>Tue 12pm - 1am</li>
+                <li>Wed 12pm - 1am</li>
+                <li>Thu 12pm - 1am</li>
+                <li>Fri 12pm - 1am</li>
+                <li>Sat 12pm - 1am</li>
+                <li>Sun 12pm - 1am</li>
+              </ul>
+            </div>
+            </ul>
+            <br>
+
+          <!-- <ul>
+            <li>2 St Vincent Place</li>
+            <li>Glasgow</li>
+            <li>G1 2DH</li>
+            <li id="hidden-times">Open today: 12am - 1am | show more</li>
+              <ul id="show">
+                <li>Mon 12pm - 1am</li>
+                <li>Tue 12pm - 1am</li>
+                <li>Wed 12pm - 1am</li>
+                <li>Thu 12pm - 1am</li>
+                <li>Fri 12pm - 1am</li>
+                <li>Sat 12pm - 1am</li>
+                <li>Sun 12pm - 1am</li>
+              </ul>
+            </ul>
+            <br> -->
+ 
       </div>
 
       <div id="map-flex-container">
@@ -34,5 +121,6 @@
       </div>
     </div>
       <footer>Davie&copy Daleo&copy Jia&copy</footer>
+      <script type="text/javascript" src="javascript/styles.js"></script>
   </body>
 </html>
