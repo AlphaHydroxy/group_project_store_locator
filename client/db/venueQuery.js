@@ -2,7 +2,7 @@ var MongoClient = require('mongodb').MongoClient;
 var ObjectId = require('mongodb').ObjectID;
 
 var VenueQuery = function(){
-  this.url = "mongodb://localhost:27017/group_project_store_locator";
+  this.url = "mongodb://localhost:27017/pubs";
 };
 
 VenueQuery.prototype = {
@@ -12,6 +12,15 @@ VenueQuery.prototype = {
       collection.find().toArray(function(err, result){
         callback(result);
       });   
+    });
+},
+  allCoords: function(callback){
+    MongoClient.connect(this.url, function(err, db){
+      var collection = db.collection('pubs');
+      // Fetches all pubs - IDs and coords only
+      collection.find({}, {coords: 1}).toArray(function(err, result){
+        callback(result);
+      });
     });
   },
   add: function(pubToAdd, callback){

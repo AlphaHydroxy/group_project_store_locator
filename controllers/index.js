@@ -13,6 +13,8 @@ var path = require('path');
 //
 // router.use('/api/example', require('./example.js'));
 
+router.use('/api/venues', require('./venues'));
+
 // Function which returns index.html when the home page is visited
 router.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/../client/build/html/index.html'));
