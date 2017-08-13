@@ -222,9 +222,9 @@ footer{
 }
 
 @media screen and (max-width: 780px){
-  section{
+/*  section{
     position: fixed;
-  }
+  }*/
 
   #nav-container{
     width: 100%;
