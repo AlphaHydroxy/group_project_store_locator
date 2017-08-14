@@ -29,23 +29,23 @@ var getMapWrapper = function(){
 function onMapInitialised(mapWrapper){
     var input = document.querySelector('#search-bar');
     var autocomplete = new google.maps.places.Autocomplete(input);
-    var handler = getPlaceChangedHandler(autocomplete, mapWrapper);
 
     // Adds the getPlaceChangedHandler to the autocomplete box
     // The handler runs whenever the user updates the value in the box
-    autocomplete.addListener('place_changed', handler);
+    autocomplete.addListener('place_changed', function(){
+        return onPlaceChanged(autocomplete, mapWrapper);
+    });
 
     // This creates an event handler on the map which updates the autocompleting textbox whenever 
     // the map's boundaries change. After updating, the results returned in the textbox are more relevant
     // to that area.
     mapWrapper.addBoundsChangedListener(autocomplete);
 
+    // Fetch near/far venues around user's position
     fetchVenues(mapWrapper.getCenter(), mapWrapper);
 };
 
-// Updates the map whenever the user enters a new location in the automplete box
-function getPlaceChangedHandler(autoCompleteBox, mapWrapper){
-    return function(){
+var onPlaceChanged = function(autoCompleteBox, mapWrapper){
         var place = autoCompleteBox.getPlace();
         if (!place.geometry) {
             // Ji - We finish up in here when the user's entered something daft into the 
@@ -63,8 +63,7 @@ function getPlaceChangedHandler(autoCompleteBox, mapWrapper){
 
         mapWrapper.addMarker(place.geometry.location, iconList.icons["user"]);
         fetchVenues(place.geometry.location, mapWrapper);
-    }
-}
+    };
 
 // Fetches and displays a collection of venues around the user's location
 function fetchVenues(position, mapWrapper){
@@ -102,7 +101,6 @@ function createVenueResultList(venue){
     openingTimesContainer.id = "opening-hours-panel";
     openingTimesContainer.appendChild(ulOpeningTimes);
 }
-
 
 var createListItem = function(text){
     var li = document.createElement("li");
