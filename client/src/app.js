@@ -57,12 +57,13 @@ function getPlaceChangedHandler(autoCompleteBox, mapWrapper){
         mapWrapper.setZoom(12);
         mapWrapper.clearMarkers();
         mapWrapper.addMarker(place.geometry.location);
-
+debugger;
         fetchVenues(place.geometry.location, mapWrapper);
     }
 }
 
 function fetchVenues(position, mapWrapper){
+    debugger;
     var venues = new Venues();
     venues.nearby(position, function(result){        
         var jsonString = this.responseText;
