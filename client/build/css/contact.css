@@ -1,0 +1,93 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  height: 100%;
+  width: 100%;
+  font-family: Cabin Sketch;
+}
+
+body{
+  background-image: url('../img/background-img.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  width: 100%;
+}
+
+#logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  width: 100%;
+}
+
+#page-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 400px;
+  text-align: center;
+  padding: 10px;
+}
+
+#navbar{
+  background-color: #000000;
+  width: 100%;
+}
+
+#nav-container{
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+#profile_flex_container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#single_student_profile_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#profile_pic{
+  width: 100px;
+  height: 100px;
+}
+
+@media (min-width: 780px){
+  .nav-child{
+     text-decoration: none;
+    margin: 0 auto; 
+    color: #FFFFFF;
+    height: 45px;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    color: white;
+    -webkit-transition: .5s linear ;
+    border-bottom: 4px #000000 solid;
+  }
+
+  .nav-child:hover{
+    color: #DB9E06;
+    transition: .8s;
+    border-bottom: 1px orange solid;
+    cursor: pointer;
+  }
+}
+
