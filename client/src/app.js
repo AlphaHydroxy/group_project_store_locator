@@ -57,7 +57,7 @@ function getPlaceChangedHandler(autoCompleteBox, mapWrapper){
         mapWrapper.setZoom(12);
         mapWrapper.clearMarkers();
         mapWrapper.addMarker(place.geometry.location);
-
+debugger;
         fetchVenues(place.geometry.location, mapWrapper);
     }
 }
