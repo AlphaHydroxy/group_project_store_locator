@@ -20,4 +20,9 @@ router.get('/', function (req, res) {
   res.sendFile(path.join(__dirname + '/../client/build/html/index.html'));
 });
 
+router.get('/contact', function (req, res) {
+  res.sendFile(path.join(__dirname + '/../client/build/html/contact.html'));
+});
+
+
 module.exports = router;

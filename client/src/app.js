@@ -63,6 +63,7 @@ debugger;
 }
 
 function fetchVenues(position, mapWrapper){
+    debugger;
     var venues = new Venues();
     venues.nearby(position, function(result){        
         var jsonString = this.responseText;
