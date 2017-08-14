@@ -43,12 +43,12 @@ VenueQuery.prototype = {
   });
         // db.collection.find( { _id: { $eq: id } } )
   },
-  returnLat: function(id, callback){
-      MongoClient.connect(this.url, function(err, db){
-        var collection = db.collection('pubs');
-        collection.findById(id), function(err, result)
+  // returnLat: function(id, callback){
+  //     MongoClient.connect(this.url, function(err, db){
+  //       var collection = db.collection('pubs');
+  //       collection.findById(id), function(err, result)
         
-        }); 
+  //       }); 
              
 };
 
