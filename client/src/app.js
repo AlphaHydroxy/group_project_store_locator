@@ -44,11 +44,16 @@ function getPlaceChangedHandler(autoCompleteBox, mapWrapper){
     return function(){
         var place = autoCompleteBox.getPlace();
         if (!place.geometry) {
+            var close = document.getElementById('alert');
+            close.style.display = "block";
+
             // Ji - We finish up in here when the user's entered something daft into the 
             // search box. Can we do something - pop up an alert, change the colour of something...?
 
             // User entered the name of a Place that was not suggested and
             // pressed the Enter key, or the Place Details request failed.
+
+            // }
             
             return;
         }
