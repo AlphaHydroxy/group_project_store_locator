@@ -116,6 +116,10 @@ input:focus{
     outline: none;
 }
 
+/*input:invalid{
+  background-color: #ffdddd;
+}*/
+
 #page-flex-container{
   display: flex;
   flex-direction: row;
@@ -136,6 +140,7 @@ input:focus{
   margin: 0 auto;
   padding: 100px;
   border: 1px grey solid;
+  font-family: 'Acme', sans-serif;
 }
 
 img{
@@ -271,11 +276,15 @@ footer{
   #drop-down{
     transition: height 0.2s linear 0s;
   }
+
+  #page-logo{
+    padding-top: 100px;
+  }
 }
 
 @media screen and (max-width: 496px){
   #logo{
-    height: 200px;
+    padding-top: 40px;
   }
 
   #page-logo{
