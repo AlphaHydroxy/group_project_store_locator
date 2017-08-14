@@ -222,7 +222,9 @@ footer{
 }
 
 @media screen and (max-width: 780px){
-/*›››››››*/
+  #navbar{
+    position: fixed;
+  }
 
   #nav-container{
     width: 100%;
