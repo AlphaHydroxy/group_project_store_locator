@@ -28,7 +28,6 @@ venueRouter.post('/nearby', function(req, res){
             };
 
             venue.distance = haversine(start, end, {unit: 'mile'});
-
             if(venue.distance <= 3){
                 nearFar.near.push(venue);
             } else {

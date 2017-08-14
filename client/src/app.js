@@ -1,5 +1,7 @@
 var MapWrapper = require('./mapWrapper');
 var Venues = require('./models/venues');
+var Icons = require('./models/icons');
+var iconList = new Icons();
 
 // Start point for code that runs whenever the browser hits this page
 var app = function(){
@@ -19,7 +21,7 @@ var getMapWrapper = function(){
 
     // Puts an event handler on the map that catches when it's first loaded.
     // Event handler returns to onMapInitialised when complete
-    mainMapWrapper.addInitListener(onMapInitialised)
+    mainMapWrapper.addInitListener(onMapInitialised, fetchVenues);
     return mainMapWrapper;
 };
 
@@ -37,6 +39,8 @@ function onMapInitialised(mapWrapper){
     // the map's boundaries change. After updating, the results returned in the textbox are more relevant
     // to that area.
     mapWrapper.addBoundsChangedListener(autocomplete);
+
+    fetchVenues(mapWrapper.getCenter(), mapWrapper);
 };
 
 // Updates the map whenever the user enters a new location in the automplete box
@@ -56,12 +60,13 @@ function getPlaceChangedHandler(autoCompleteBox, mapWrapper){
         mapWrapper.setCenter(place.geometry.location);
         mapWrapper.setZoom(12);
         mapWrapper.clearMarkers();
-        mapWrapper.addMarker(place.geometry.location);
+        mapWrapper.addMarker(place.geometry.location, iconList.icons["user"]);
 
         fetchVenues(place.geometry.location, mapWrapper);
     }
 }
 
+// Fetches and displays a collection of venues around the user's location
 function fetchVenues(position, mapWrapper){
     var venues = new Venues();
     venues.nearby(position, function(result){        
@@ -69,15 +74,13 @@ function fetchVenues(position, mapWrapper){
         var results = JSON.parse(jsonString);
 
         results.near.forEach(function(venue){
-            mapWrapper.addMarker({lat: venue.coords.lat, lng: venue.coords.long});
-        })
+            mapWrapper.addMarker({lat: venue.coords.lat, lng: venue.coords.long}, iconList.icons["near"]);
+        });
+
+        results.far.forEach(function(venue){
+            mapWrapper.addMarker({lat: venue.coords.lat, lng: venue.coords.long}, iconList.icons["far"]);
+        });
     });
-}
-
-
-
-function showVenuesOnMap(venues){
-
-}
+};
 
 window.addEventListener('load', app);

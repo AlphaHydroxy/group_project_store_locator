@@ -1,3 +1,6 @@
+var Icons = require('./models/icons');
+var iconList = new Icons();
+
 var MapWrapper = function(container, center, zoomLevel){
     this.markers = [];
     this.map = new google.maps.Map(container, {
@@ -19,7 +22,7 @@ MapWrapper.prototype.getCenter = function(){
     return this.map.getCenter();
 }
 
-MapWrapper.prototype.addInitListener = function(callback){
+MapWrapper.prototype.addInitListener = function(outerCallback, innerCallback){
     // The shame. 
     var self = this;
 
@@ -43,12 +46,16 @@ MapWrapper.prototype.addInitListener = function(callback){
 
                     console.log("Geolocation center is: " + pos.lat + ', ' + pos.lng);
 
+                    // Clear any existing markers
+                    self.clearMarkers();
                     // Add a marker to indicate the user's position
-                    self.addMarker(pos);
+                    self.addMarker(pos, iconList.icons["user"]);
                     // Re-center the map at the user's co-ordinates
                     self.setCenter(pos);
                     // Set map zoom to show a decent area around the user
                     self.setZoom(12);
+
+                    innerCallback(pos, self);
                 }, 
                 function(error) {
                     handleLocationError(error);
@@ -60,7 +67,7 @@ MapWrapper.prototype.addInitListener = function(callback){
             handleLocationError(false);
         };
 
-        callback(self);
+        outerCallback(self);
     });
 
     function handleLocationError(browserHasGeolocation) {
@@ -70,10 +77,12 @@ MapWrapper.prototype.addInitListener = function(callback){
 };
 
 // Adds a marker to the map at the given co-ordinates
-MapWrapper.prototype.addMarker = function(coords){
+MapWrapper.prototype.addMarker = function(coords, iconPath){
     var marker = new google.maps.Marker({
         position: coords,
-        map: this.map
+        map: this.map,
+        animation: google.maps.Animation.DROP,
+        icon: iconPath
     });
 
     this.markers.push(marker);
