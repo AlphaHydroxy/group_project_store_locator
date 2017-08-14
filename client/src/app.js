@@ -43,10 +43,11 @@ function onMapInitialised(mapWrapper){
 function getPlaceChangedHandler(autoCompleteBox, mapWrapper){
     return function(){
         var place = autoCompleteBox.getPlace();
-        if (!place.geometry) {
-            var close = document.getElementById('alert');
-            close.style.display = "block";
 
+        if (!place.geometry) {
+            // var close = document.getElementById('alert');
+            // close.style.display = "block";
+            // debugger;
             // Ji - We finish up in here when the user's entered something daft into the 
             // search box. Can we do something - pop up an alert, change the colour of something...?
 
@@ -62,7 +63,7 @@ function getPlaceChangedHandler(autoCompleteBox, mapWrapper){
         mapWrapper.setZoom(12);
         mapWrapper.clearMarkers();
         mapWrapper.addMarker(place.geometry.location);
-debugger;
+
         fetchVenues(place.geometry.location, mapWrapper);
     }
 }

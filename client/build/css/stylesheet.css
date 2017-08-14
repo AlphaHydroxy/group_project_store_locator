@@ -149,8 +149,8 @@ input:focus{
 #page-flex-container{
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
+  /*align-items: center;*/
+  justify-content: center;
   flex-wrap: wrap;
   font-size: 22px;
   padding: 50px;
@@ -159,12 +159,13 @@ input:focus{
 #pub-list-flex-container{
   overflow: auto;
   /*height: 400px;*/
+  width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
-  padding: 20px 50px 50px 50px;
+  padding: 50px 50px 50px 50px;
   border: 1px grey solid;
   font-family: 'Acme', sans-serif;
 }
