@@ -1,4 +1,4 @@
-use site_name:
+use pubs;
 
 db.pubs.insert([
     {
@@ -21,8 +21,8 @@ db.pubs.insert([
             sunday: ["07:00", "00:00"]
         },
         coords: {
-            long: 55.86107943371641,
-            lat: -4.251891372088039,
+            long: -4.251891372088039,
+            lat: 55.86107943371641
         }
     },
      {

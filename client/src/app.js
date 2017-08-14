@@ -1,4 +1,5 @@
-var MapWrapper = require('./mapWrapper.js');
+var MapWrapper = require('./mapWrapper');
+var Venues = require('./models/venues');
 
 // Start point for code that runs whenever the browser hits this page
 var app = function(){
@@ -24,7 +25,6 @@ var getMapWrapper = function(){
 
 // Runs after the map has finished its initial loading
 function onMapInitialised(mapWrapper){
-
     var input = document.querySelector('#search-bar');
     var autocomplete = new google.maps.places.Autocomplete(input);
     var handler = getPlaceChangedHandler(autocomplete, mapWrapper);
@@ -57,7 +57,28 @@ function getPlaceChangedHandler(autoCompleteBox, mapWrapper){
         mapWrapper.setZoom(12);
         mapWrapper.clearMarkers();
         mapWrapper.addMarker(place.geometry.location);
+debugger;
+        fetchVenues(place.geometry.location, mapWrapper);
     }
+}
+
+function fetchVenues(position, mapWrapper){
+    debugger;
+    var venues = new Venues();
+    venues.nearby(position, function(result){        
+        var jsonString = this.responseText;
+        var results = JSON.parse(jsonString);
+
+        results.near.forEach(function(venue){
+            mapWrapper.addMarker({lat: venue.coords.lat, lng: venue.coords.long});
+        })
+    });
+}
+
+
+
+function showVenuesOnMap(venues){
+
 }
 
 window.addEventListener('load', app);

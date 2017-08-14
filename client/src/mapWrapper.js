@@ -4,6 +4,7 @@ var MapWrapper = function(container, center, zoomLevel){
         center: center,
         zoom: zoomLevel
     });
+    this.hasGeolocation = false;
 };
 
 MapWrapper.prototype.getMap = function(){
@@ -13,6 +14,10 @@ MapWrapper.prototype.getMap = function(){
 MapWrapper.prototype.getMarkers = function(){
     return this.markers;
 };
+
+MapWrapper.prototype.getCenter = function(){
+    return this.map.getCenter();
+}
 
 MapWrapper.prototype.addInitListener = function(callback){
     // The shame. 
@@ -25,6 +30,7 @@ MapWrapper.prototype.addInitListener = function(callback){
         // Sourced from: https://developers.google.com/maps/documentation/javascript/geolocation
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
+            self.hasGeolocation = true;
 
             navigator.geolocation.getCurrentPosition(
                 function(position) {
