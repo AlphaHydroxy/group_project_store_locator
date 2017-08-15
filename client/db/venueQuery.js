@@ -40,16 +40,8 @@ VenueQuery.prototype = {
       collection.findOne({"_id": new ObjectId(id)}, function(err, result) {
        callback(result);
            });
-  });
-        // db.collection.find( { _id: { $eq: id } } )
-  },
-  // returnLat: function(id, callback){
-  //     MongoClient.connect(this.url, function(err, db){
-  //       var collection = db.collection('pubs');
-  //       collection.findById(id), function(err, result)
-        
-  //       }); 
-             
+    });
+  },             
 };
 
 module.exports = VenueQuery;

@@ -3,6 +3,7 @@
   <head>
     <title>Pub Finder</title>
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <script src='https://maps.googleapis.com/maps/api/js?libraries=places'></script>
@@ -36,59 +37,32 @@
     <div id="search-wrapper">
       <p>Find pubs in Scotland</p>
       <img src="img/scotland.png">
-      <input id="search-bar" type="text" name="search" placeholder="enter postcode, town or city..."<span id="search-lg"></span>
+      <form>
+        <input id="search-bar" type="text" name="search" placeholder="enter postcode, town or city..." required >
+      </form>
+      <div id="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times</span>
+        not found, please try again
+      </div>
     </div>
 
     <div id="page-flex-container">
     
       <div id="pub-list-flex-container">
-        <h1 class="pub-title">Wetherspoons</h1>
-        <ul>
-          <li>2 St Vincent Place</li>
-          <li>Glasgow</li>
-          <li>G1 2DH</li>
-          <li>0141 123456</li>
-          <li>wetherspoons@pub.com</li>
-
-
-          
-<!--           <img src="img/facilities/baby_changing.png">
-          <img src="img/facilities/meeting_facilities.png">
-          <img src="img/facilities/step_free_access.png">
-          <img src="img/facilities/wifi.png">
-          <li>Open today: 12am - 1am</li> -->
-
-
-          <div id="btn-container">
-            <button onclick="toggleOpeningHours('opening-hours-panel')">More times...<span id="arrow">&#9662</span></button>
-          </div>
-          <div id="opening-hours-panel">
-            <ul id="slide-panel">
-              <li>Mon 12pm - 1am</li>
-              <li>Tue 12pm - 1am</li>
-              <li>Wed 12pm - 1am</li>
-              <li>Thu 12pm - 1am</li>
-              <li>Fri 12pm - 1am</li>
-              <li>Sat 12pm - 1am</li>
-              <li>Sun 12pm - 1am</li>
+        <ul class="pubs">
+          <li>
+            <ul>
+              <li class="pub-name">Wetherspoons</li>
+              <li class="addy-1">2 St Vincent Place</li>
+              <li class="addy-2">Glasgow</li>
+              <li class="postcode">G1 2DH</li>
+              <li class="phone-no">0141 123456</li>
+              <li class="email">wetherspoons@pub.com</li>
+              <li class="facilities"></li>
+              <li class="open-today">open today: 12pm - 1am</li>
             </ul>
-          </div>
-          </ul>
-          <br>
-
-          <h1 class="pub-title">Wetherspoons</h1>
-          <ul>
-            <li>2 St Vincent Place</li>
-            <li>Glasgow</li>
-            <li>G1 2DH</li>
-            <li>0141 123456</li>
-            <li>wetherspoons@pub.com</li>
-            <li>facilities</li>
-            <li>Open today: 12am - 1am</li>
-            <div id="btn-container">
-              <button onclick="toggleOpeningHours('opening-hours-panel')">More times...<span id="arrow">&#9662</span></button>
-            </div>
-            <div id="opening-hours-panel">
+            <details>
+              <summary>more times...</summary>
               <ul id="slide-panel">
                 <li>Mon 12pm - 1am</li>
                 <li>Tue 12pm - 1am</li>
@@ -98,16 +72,103 @@
                 <li>Sat 12pm - 1am</li>
                 <li>Sun 12pm - 1am</li>
               </ul>
-            </div>
+            </details>
+          </li>
+        </ul>
+        <br>
+
+        <ul class="pubs">
+          <li>
+            <ul>
+              <li class="pub-name">Wetherspoons</li>
+              <li class="addy-1">2 St Vincent Place</li>
+              <li class="addy-2">Glasgow</li>
+              <li class="postcode">G1 2DH</li>
+              <li class="phone-no">0141 123456</li>
+              <li class="email">wetherspoons@pub.com</li>
+              <li class="facilities"></li>
+              <li class="open-today">open today: 12pm - 1am</li>
             </ul>
-            <br>
- 
+            <details>
+              <summary>more times...</summary>
+              <ul id="slide-panel">
+                <li>Mon 12pm - 1am</li>
+                <li>Tue 12pm - 1am</li>
+                <li>Wed 12pm - 1am</li>
+                <li>Thu 12pm - 1am</li>
+                <li>Fri 12pm - 1am</li>
+                <li>Sat 12pm - 1am</li>
+                <li>Sun 12pm - 1am</li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+        <br>
+
+        <ul class="pubs">
+          <li>
+            <ul>
+              <li class="pub-name">Wetherspoons</li>
+              <li class="addy-1">2 St Vincent Place</li>
+              <li class="addy-2">Glasgow</li>
+              <li class="postcode">G1 2DH</li>
+              <li class="phone-no">0141 123456</li>
+              <li class="email">wetherspoons@pub.com</li>
+              <li class="facilities"></li>
+              <li class="open-today">open today: 12pm - 1am</li>
+            </ul>
+            <details>
+              <summary>more times...</summary>
+              <ul id="slide-panel">
+                <li>Mon 12pm - 1am</li>
+                <li>Tue 12pm - 1am</li>
+                <li>Wed 12pm - 1am</li>
+                <li>Thu 12pm - 1am</li>
+                <li>Fri 12pm - 1am</li>
+                <li>Sat 12pm - 1am</li>
+                <li>Sun 12pm - 1am</li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+        <br>
+
+        <ul class="pubs">
+          <li>
+            <ul>
+              <li class="pub-name">Wetherspoons</li>
+              <li class="addy-1">2 St Vincent Place</li>
+              <li class="addy-2">Glasgow</li>
+              <li class="postcode">G1 2DH</li>
+              <li class="phone-no">0141 123456</li>
+              <li class="email">wetherspoons@pub.com</li>
+              <li class="facilities"></li>
+              <li class="open-today">open today: 12pm - 1am</li>
+            </ul>
+            <details>
+              <summary>more times...</summary>
+              <ul id="slide-panel">
+                <li>Mon 12pm - 1am</li>
+                <li>Tue 12pm - 1am</li>
+                <li>Wed 12pm - 1am</li>
+                <li>Thu 12pm - 1am</li>
+                <li>Fri 12pm - 1am</li>
+                <li>Sat 12pm - 1am</li>
+                <li>Sun 12pm - 1am</li>
+              </ul>
+            </details>
+          </li>
+        </ul>
+
       </div>
+
+    
 
       <div id="map-flex-container">
         <div id=map></div>
       </div>
     </div>
+<<<<<<< HEAD
       </div> 
   <div id="contact-div">
 
@@ -165,6 +226,10 @@
 
   </div>
     <footer>Davie&copy Daleo&copy Jia&copy</footer>
+=======
+    </div>
+      <footer>Davie&copy Daleo&copy Jia&copy</footer>
+>>>>>>> develop
       <script type="text/javascript" src="javascript/styles.js"></script>
       <script type="text/javascript" src="javascript/bundle.js"></script>
   </body>
