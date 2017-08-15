@@ -12,8 +12,8 @@
   <section id="navbar">
     <nav id="nav-container">
         <ul id="drop-down">
-          <a class="nav-child" href="#"><li>Home</li></a>
-          <a class="nav-child" href="/contact"><li>Contact Us</li></a>
+          <a class="nav-child" id="home-button"><li>Home</li></a>
+          <a class="nav-child" id="contact-button"><li>Contact Us</li></a>
           <a class="nav-child" href="#"><li>Log In</li></a>
         </ul>
     </nav>
@@ -31,142 +31,203 @@
       <img id="page-logo" src="img/black_orange_logo.png">
     </div>
 
-    <div id="search-wrapper">
-      <p>Find pubs in Scotland</p>
-      <img src="img/scotland.png">
-      <form>
-        <input id="search-bar" type="text" name="search" placeholder="enter postcode, town or city..." required >
-      </form>
-      <div id="alert">
-        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times</span>
-        not found, please try again
-      </div>
-    </div>
-
-    <div id="page-flex-container">
-      <div id="pub-list-flex-container">
-        <ul class="pubs">
-          <li>
-            <ul>
-              <li class="pub-name">Wetherspoons</li>
-              <li class="addy-1">2 St Vincent Place</li>
-              <li class="addy-2">Glasgow</li>
-              <li class="postcode">G1 2DH</li>
-              <li class="phone-no">0141 123456</li>
-              <li class="email">wetherspoons@pub.com</li>
-              <li class="facilities"></li>
-              <li class="open-today">open today: 12pm - 1am</li>
-            </ul>
-            <details>
-              <summary>more times...</summary>
-              <ul id="slide-panel">
-                <li>Mon 12pm - 1am</li>
-                <li>Tue 12pm - 1am</li>
-                <li>Wed 12pm - 1am</li>
-                <li>Thu 12pm - 1am</li>
-                <li>Fri 12pm - 1am</li>
-                <li>Sat 12pm - 1am</li>
-                <li>Sun 12pm - 1am</li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-
-        <br>
-
-        <ul class="pubs">
-          <li>
-            <ul>
-              <li class="pub-name">Wetherspoons</li>
-              <li class="addy-1">2 St Vincent Place</li>
-              <li class="addy-2">Glasgow</li>
-              <li class="postcode">G1 2DH</li>
-              <li class="phone-no">0141 123456</li>
-              <li class="email">wetherspoons@pub.com</li>
-              <li class="facilities"></li>
-              <li class="open-today">open today: 12pm - 1am</li>
-            </ul>
-            <details>
-              <summary>more times...</summary>
-              <ul id="slide-panel">
-                <li>Mon 12pm - 1am</li>
-                <li>Tue 12pm - 1am</li>
-                <li>Wed 12pm - 1am</li>
-                <li>Thu 12pm - 1am</li>
-                <li>Fri 12pm - 1am</li>
-                <li>Sat 12pm - 1am</li>
-                <li>Sun 12pm - 1am</li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-
-        <br>
-
-        <ul class="pubs">
-          <li>
-            <ul>
-              <li class="pub-name">Wetherspoons</li>
-              <li class="addy-1">2 St Vincent Place</li>
-              <li class="addy-2">Glasgow</li>
-              <li class="postcode">G1 2DH</li>
-              <li class="phone-no">0141 123456</li>
-              <li class="email">wetherspoons@pub.com</li>
-              <li class="facilities"></li>
-              <li class="open-today">open today: 12pm - 1am</li>
-            </ul>
-            <details>
-              <summary>more times...</summary>
-              <ul id="slide-panel">
-                <li>Mon 12pm - 1am</li>
-                <li>Tue 12pm - 1am</li>
-                <li>Wed 12pm - 1am</li>
-                <li>Thu 12pm - 1am</li>
-                <li>Fri 12pm - 1am</li>
-                <li>Sat 12pm - 1am</li>
-                <li>Sun 12pm - 1am</li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-        
-        <br>
-
-        <ul class="pubs">
-          <li>
-            <ul>
-              <li class="pub-name">Wetherspoons</li>
-              <li class="addy-1">2 St Vincent Place</li>
-              <li class="addy-2">Glasgow</li>
-              <li class="postcode">G1 2DH</li>
-              <li class="phone-no">0141 123456</li>
-              <li class="email">wetherspoons@pub.com</li>
-              <li class="facilities"></li>
-              <li class="open-today">open today: 12pm - 1am</li>
-            </ul>
-            <details>
-              <summary>more times...</summary>
-              <ul id="slide-panel">
-                <li>Mon 12pm - 1am</li>
-                <li>Tue 12pm - 1am</li>
-                <li>Wed 12pm - 1am</li>
-                <li>Thu 12pm - 1am</li>
-                <li>Fri 12pm - 1am</li>
-                <li>Sat 12pm - 1am</li>
-                <li>Sun 12pm - 1am</li>
-              </ul>
-            </details>
-          </li>
-        </ul>
+    <div id="main-div">
+      <div id="search-wrapper">
+        <p>Find pubs in Scotland</p>
+        <img src="img/scotland.png">
+        <form>
+          <input id="search-bar" type="text" name="search" placeholder="enter postcode, town or city..." required >
+        </form>
+        <div id="alert">
+          <span class="closebtn" onclick="this.parentElement.style.display='none';">&times</span>
+          not found, please try again
+        </div>
       </div>
 
-      <div id="map-flex-container">
-        <div id=map></div>
+      <div id="page-flex-container">
+        <div id="pub-list-flex-container">
+          <div class="pubs-header">Pubs in your area:</div>
+          <ul class="pubs">
+            <li>
+              <ul>
+                <li class="pub-name">Wetherspoons</li>
+                <li class="addy-1">2 St Vincent Place</li>
+                <li class="addy-2">Glasgow</li>
+                <li class="postcode">G1 2DH</li>
+                <li class="phone-no">0141 123456</li>
+                <li class="email">wetherspoons@pub.com</li>
+                <li class="facilities"></li>
+                <li class="open-today">open today: 12pm - 1am</li>
+              </ul>
+              <details>
+                <summary>more times...</summary>
+                <ul id="slide-panel">
+                  <li>Mon 12pm - 1am</li>
+                  <li>Tue 12pm - 1am</li>
+                  <li>Wed 12pm - 1am</li>
+                  <li>Thu 12pm - 1am</li>
+                  <li>Fri 12pm - 1am</li>
+                  <li>Sat 12pm - 1am</li>
+                  <li>Sun 12pm - 1am</li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+
+          <br>
+
+          <ul class="pubs">
+            <li>
+              <ul>
+                <li class="pub-name">Wetherspoons</li>
+                <li class="addy-1">2 St Vincent Place</li>
+                <li class="addy-2">Glasgow</li>
+                <li class="postcode">G1 2DH</li>
+                <li class="phone-no">0141 123456</li>
+                <li class="email">wetherspoons@pub.com</li>
+                <li class="facilities"></li>
+                <li class="open-today">open today: 12pm - 1am</li>
+              </ul>
+              <details>
+                <summary>more times...</summary>
+                <ul id="slide-panel">
+                  <li>Mon 12pm - 1am</li>
+                  <li>Tue 12pm - 1am</li>
+                  <li>Wed 12pm - 1am</li>
+                  <li>Thu 12pm - 1am</li>
+                  <li>Fri 12pm - 1am</li>
+                  <li>Sat 12pm - 1am</li>
+                  <li>Sun 12pm - 1am</li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+
+          <br>
+
+          <ul class="pubs">
+            <li>
+              <ul>
+                <li class="pub-name">Wetherspoons</li>
+                <li class="addy-1">2 St Vincent Place</li>
+                <li class="addy-2">Glasgow</li>
+                <li class="postcode">G1 2DH</li>
+                <li class="phone-no">0141 123456</li>
+                <li class="email">wetherspoons@pub.com</li>
+                <li class="facilities"></li>
+                <li class="open-today">open today: 12pm - 1am</li>
+              </ul>
+              <details>
+                <summary>more times...</summary>
+                <ul id="slide-panel">
+                  <li>Mon 12pm - 1am</li>
+                  <li>Tue 12pm - 1am</li>
+                  <li>Wed 12pm - 1am</li>
+                  <li>Thu 12pm - 1am</li>
+                  <li>Fri 12pm - 1am</li>
+                  <li>Sat 12pm - 1am</li>
+                  <li>Sun 12pm - 1am</li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+          
+          <br>
+
+          <ul class="pubs">
+            <li>
+              <ul>
+                <li class="pub-name">Wetherspoons</li>
+                <li class="addy-1">2 St Vincent Place</li>
+                <li class="addy-2">Glasgow</li>
+                <li class="postcode">G1 2DH</li>
+                <li class="phone-no">0141 123456</li>
+                <li class="email">wetherspoons@pub.com</li>
+                <li class="facilities"></li>
+                <li class="open-today">open today: 12pm - 1am</li>
+              </ul>
+              <details>
+                <summary>more times...</summary>
+                <ul id="slide-panel">
+                  <li>Mon 12pm - 1am</li>
+                  <li>Tue 12pm - 1am</li>
+                  <li>Wed 12pm - 1am</li>
+                  <li>Thu 12pm - 1am</li>
+                  <li>Fri 12pm - 1am</li>
+                  <li>Sat 12pm - 1am</li>
+                  <li>Sun 12pm - 1am</li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </div>
+
+        <div id="map-flex-container">
+          <div id=map></div>
+          <div class="affiliate">
+            <a href="http://www.tennents.com/"><img class="tennents-img" src="img/tennents.png" alt="tennents"></a>
+            <a href="https://www.brewdog.com/"><img class="brewdog-img" src="img/brewdog-logo.gif" alt="brewdog"/></a>
+            <a href="https://www.drinkaware.co.uk/"><img class="drinkaware-img" src="img/drink_aware.png" alt=drinkaware></a>
+          </div>
+        </div>
+      </div>
+    </div> 
+
+    <div id="contact-div">
+
+      <div id="form-flex-wrapper">
+        <h2 class="contact-header"> Contact Us </h2>
+        <form id="comments-form" action="/api/comments" method="post">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" placeholder="e.g John Smith"/>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="123@internet.com"/>
+
+          <label for="title">Comment Subject:</label>
+          <input type="text" id="title" name="title" placeholder="subject..."/>
+
+          <label for="comments">Comments:</label>
+          <input class="message-box" type="text" id="comments" name="comments" placeholder="leave us a message..."/>
+          <button class="submit-button" type="submit" value="Submit"/>
+        </form>
+        <text-area rows="5" cols="50" form="comments-form">Submit Comments</text-area> 
+      </div>
+
+      <p> </p>
+    
+      <div id="profile_flex_container">
+        <div id="single_student_profile_container">
+          <h1>Dale</h1>
+          <ul>
+            <img class="profile_pic" src="https://avatars2.githubusercontent.com/u/2522582?v=4&s=460">
+            <!-- "https://github.com/goobering">GitHub -->
+          </ul>
+          <br>
+        </div>
+
+        <div id="single_student_profile_container">
+          <h1>Jia</h1>
+          <ul>
+            <img class="profile_pic" src="https://avatars3.githubusercontent.com/u/12969902?v=4&s=460">
+            <!-- "https://github.com/AlphaHydroxy">GitHub -->
+          </ul>
+          <br>
+        </div>
+
+        <div id="single_student_profile_container">
+          <h1>Davie</h1>
+          <ul>
+            <img class="profile_pic"
+            src="https://avatars2.githubusercontent.com/u/27961785?v=4&s=460">
+            <!-- "https://github.com/clarkee013">GitHub -->
+          </ul>
+          <br>
+        </div>
       </div>
     </div>
-    </div>
-      <footer>Davie&copy Daleo&copy Jia&copy</footer>
-     
-      <script src='https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap'></script>
+    
+    <footer>Davie&copy Daleo&copy Jia&copy</footer>
+    <script src='https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap'></script>
   </body>
 </html>

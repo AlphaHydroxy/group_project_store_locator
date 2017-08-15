@@ -1,5 +1,7 @@
 var MapWrapper = require('./mapWrapper');
 var Venues = require('./models/venues');
+
+var Comments = require('./models/comments');
 var Icons = require('./models/icons');
 var iconList = new Icons();
 
@@ -7,6 +9,16 @@ var mainMapWrapper;
 
 // Start point for code that runs whenever the Google Maps API loads
 var initMap = function(){
+    // Set up handlers for nav menu options
+    var contactButton = document.querySelector("#contact-button");
+    contactButton.onclick = switchToContact;
+    var homeButton = document.querySelector("#home-button");
+    homeButton.onclick = switchToHome;
+
+    // Set up handler for submitting a comment
+    var commentsForm = document.querySelector("#comments-form");
+    commentsForm.onsubmit = submitComment;
+
     // THIS IS INCREDIBLY IMPORTANT.
     // IT PREVENTS THE ENTER KEY ON THE SEARCH BOX FROM SUBMITTING THE FORM AND REFRESHING THE PAGE
     // DO NOT EVER, UNDER ANY CIRCUMSTANCES, EVER, TOUCH THIS.
@@ -54,7 +66,8 @@ function onPlaceChanged(){
     if (!place.geometry) {
         // User entered the name of a Place that was not suggested and
         // pressed the Enter key, or the Place Details request failed.
-        window.alert("No details available for input: '" + place.name + "'");
+        var close = document.getElementById('alert');
+        close.style.display = "block";
         return;
     }
 
@@ -224,4 +237,34 @@ var round = function(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
+var switchToContact = function(){
+    var contact = document.querySelector("#contact-div")
+    contact.style.display = "block";
+    var main = document.querySelector("#main-div");
+    main.style.display = "none";
+}
+
+var switchToHome = function(){
+    var main = document.querySelector("#main-div")
+    main.style.display = "block";
+    var contact = document.querySelector("#contact-div")
+    contact.style.display = "none";
+}
+
+var submitComment = function(e){
+    e.preventDefault();
+    console.log(e);
+    var newComment = {
+        name: e.target.children.name.value,
+        email: e.target.children.email.value,
+        title: e.target.children.title.value,
+        comment: e.target.children.comments.value,
+    }
+    var comments = new Comments();
+    comments.add(newComment, function(data){
+        console.log(data);
+    });
+}
+
+window.addEventListener('load', app);
 window.initMap = initMap;

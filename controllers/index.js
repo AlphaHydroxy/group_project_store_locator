@@ -14,6 +14,7 @@ var path = require('path');
 // router.use('/api/example', require('./example.js'));
 
 router.use('/api/venues', require('./venues'));
+router.use('/api/comments', require('./comments'));
 
 // Function which returns index.html when the home page is visited
 router.get('/', function (req, res) {
