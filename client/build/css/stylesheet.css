@@ -138,7 +138,7 @@ body{
 }
 
 input:focus{
-    outline: none;
+  outline: none;
 }
 
 #alert{
@@ -179,7 +179,6 @@ input:focus{
 
 #pub-list-flex-container{
   overflow: auto;
-  ::-webkit-scrollbar
   /*height: 400px;*/
   /*width: 400px;*/
   color: white;
@@ -441,9 +440,13 @@ footer{
   }
 
   #pub-list-flex-container{
-    padding-top: 150px;
     height: 200px;
     color: white;
+    font-size: 16px;
+  }
+
+  #pub-list-flex-container h1{
+    font-size: 20px;
   }
 
   .affiliate{
@@ -499,7 +502,6 @@ footer{
   #pub-list-flex-container{
     font-size: 16px;
     width: 100%;
-    padding-top: 80px;
     border: 1px grey solid;
     /* overflow: auto; */
   }
