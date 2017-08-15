@@ -6,14 +6,14 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <script src='https://maps.googleapis.com/maps/api/js?libraries=places'></script>
-    <script type="text/javascript" src="javascript/bundle.js"></script>
+    
   </head>
 
   <section id="navbar">
     <nav id="nav-container">
         <ul id="drop-down">
-          <a class="nav-child" href="#"><li>Home</li></a>
-          <a class="nav-child" href="/contact"><li>Contact Us</li></a>
+          <a class="nav-child" id="home-button"><li>Home</li></a>
+          <a class="nav-child" id="contact-button"><li>Contact Us</li></a>
           <a class="nav-child" href="#"><li>Log In</li></a>
         </ul>
     </nav>
@@ -32,7 +32,7 @@
       <img id="page-logo" src="img/black_orange_logo.png">
     </div>
    
-
+<div id="main-div">
     <div id="search-wrapper">
       <p>Find pubs in Scotland</p>
       <img src="img/scotland.png">
@@ -108,7 +108,64 @@
         <div id=map></div>
       </div>
     </div>
-      <footer>Davie&copy Daleo&copy Jia&copy</footer>
+      </div> 
+  <div id="contact-div">
+
+    <h2> Contact Us </h2>
+     <p> </p>
+
+    <div>
+      <form id="comments-form" action="/api/comments" method="post">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" />
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" />
+        <label for="comments">Comments:</label>
+        <input type="text" id="comments" name="comments" />
+        <button id="submit-button" type="submit" value="Submit" />
+      </form>
+    </div>
+   
+    <div id="profile_flex_container">
+       <div id="single_student_profile_container">
+        <h1>Dale</h1>
+        <ul>
+          <img id="profile_pic" src="https://avatars2.githubusercontent.com/u/2522582?v=4&s=460">
+          <!-- "https://github.com/goobering">GitHub -->
+            </ul>
+          </ul>
+          <br>
+          </div>
+
+        <div id="single_student_profile_container">
+        <h1>Jia</h1>
+        <ul>
+          <img id="profile_pic" src="https://avatars3.githubusercontent.com/u/12969902?v=4&s=460">
+          <!-- "https://github.com/AlphaHydroxy">GitHub -->
+            </ul>
+          </ul>
+          <br>
+          </div>
+
+         <div id="single_student_profile_container">
+        <h1>Davie</h1>
+        <ul>
+          <img id="profile_pic"
+          src="https://avatars2.githubusercontent.com/u/27961785?v=4&s=460">
+          <!-- "https://github.com/clarkee013">GitHub -->
+            </ul>
+          </ul>
+          <br>
+          </div>
+            </ul>
+            <br>
+      </div>
+
+  </div>
+    <footer>Davie&copy Daleo&copy Jia&copy</footer>
       <script type="text/javascript" src="javascript/styles.js"></script>
+      <script type="text/javascript" src="javascript/bundle.js"></script>
   </body>
 </html>

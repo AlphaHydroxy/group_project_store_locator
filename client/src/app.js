@@ -1,8 +1,15 @@
 var MapWrapper = require('./mapWrapper');
 var Venues = require('./models/venues');
+var Comments = require('./models/comments');
 
 // Start point for code that runs whenever the browser hits this page
 var app = function(){
+    var contactButton = document.querySelector("#contact-button");
+    contactButton.onclick = switchToContact;
+    var homeButton = document.querySelector("#home-button");
+    homeButton.onclick = switchToHome;
+    var commentsForm = document.querySelector("#comments-form");
+    commentsForm.onsubmit = submitComment;
     var mainMapWrapper = getMapWrapper();
 };
 
@@ -130,12 +137,36 @@ var createListItem = function(text){
     };
 
 
-
-
-
-
 function showVenuesOnMap(venues){
-
 }
+
+var switchToContact = function(){
+    var contact = document.querySelector("#contact-div")
+    contact.style.display = "block";
+    var main = document.querySelector("#main-div");
+    main.style.display = "none";
+}
+
+var switchToHome = function(){
+    var main = document.querySelector("#main-div")
+    main.style.display = "block";
+    var contact = document.querySelector("#contact-div")
+    contact.style.display = "none";
+}
+
+var submitComment = function(e){
+        e.preventDefault();
+        var newComment = {
+            name: e.target.name.value,
+            email: e.target.email.value,
+            title: e.target.title.value,
+            comment: e.target.comment.value
+        }
+        var comments = new Comments();
+        comments.add(newComment, function(data){
+            console.log(data);
+        });
+}
+
 
 window.addEventListener('load', app);
