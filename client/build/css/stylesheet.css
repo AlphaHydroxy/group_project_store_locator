@@ -157,9 +157,14 @@ input:focus{
 }
 
 #pub-list-flex-container{
+<<<<<<< HEAD
   overflow: auto;
   /*height: 400px;*/
   width: 400px;
+=======
+  /* overflow: auto; */
+  height: 400px;
+>>>>>>> 9371146f245a8920a00caa62b2a5dbf7672a5c92
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,6 +193,11 @@ DETAILS[open] SUMMARY ~ * {
     opacity: 1; 
     margin-left: 0px
   }
+}
+
+#pub-list{
+  overflow: auto;
+  height: 100%;
 }
 
 img{
@@ -363,7 +373,7 @@ footer{
     width: 100%;
     padding-top: 80px;
     border: 1px grey solid;
-    overflow: auto;
+    /* overflow: auto; */
   }
 
   .pub-title{

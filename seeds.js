@@ -10,7 +10,7 @@ db.pubs.insert([
         postCode: "G1 2DH", 
         phone: "0141 225 0160",
         email: "",
-        facilites: ["Children Welcome", "Room Hire", "WiFi", "Baby Changing", "Meeting Facilities", "Step Free Access"],
+        facilities: ["Children Welcome", "Room Hire", "WiFi", "Baby Changing", "Meeting Facilities", "Step Free Access"],
         openingTimes: {
             monday: ["07:00", "00:00"],
             tuesday: ["07:00", "00:00"],
@@ -34,7 +34,7 @@ db.pubs.insert([
         postCode: "G2 2JJ", 
         phone: "0141 229 7560",
         email: "",
-        facilites: ["Broadcasts Live News", "Children Welcome", "Licensed Outdoor Area", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
+        facilities: ["Broadcasts Live News", "Children Welcome", "Licensed Outdoor Area", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
         openingTimes: {
             monday: ["07:30", "00:00"],
             tuesday: ["07:30", "00:00"],
@@ -58,7 +58,7 @@ db.pubs.insert([
         postCode: "G1 4QD", 
         phone: "0141 221 2624",
         email: "",
-        facilites: ["Broadcasts Live News", "Children Welcome", "WiFi", "Sky Sports", "TV Screens", "Step Free Access", "Meeting Facilities", "BT Sport","BT Sport", "Licensed Outdoor Area"],
+        facilities: ["Broadcasts Live News", "Children Welcome", "WiFi", "Sky Sports", "TV Screens", "Step Free Access", "Meeting Facilities", "BT Sport","BT Sport", "Licensed Outdoor Area"],
         openingTimes: {
             monday: ["07:00", "00:00"],
             tuesday: ["07:00", "00:00"],
@@ -82,7 +82,7 @@ db.pubs.insert([
         postCode: "G2 8QW", 
         phone: "0141 222 1780",
         email: "",
-        facilites: ["Children Welcome", "Licensed Outdoor Area", "WiFi", "Baby Changing", "Step Free Access"],
+        facilities: ["Children Welcome", "Licensed Outdoor Area", "WiFi", "Baby Changing", "Step Free Access"],
         openingTimes: {
             monday: ["07:00", "00:00"],
             tuesday: ["07:00", "00:00"],
@@ -106,7 +106,7 @@ db.pubs.insert([
         postCode: "G2 3HU",  
         phone: "0141 331 9810",
         email: "",
-        facilites: ["Broadcasts Live News", "Children Welcome", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
+        facilities: ["Broadcasts Live News", "Children Welcome", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
         openingTimes: {
             monday: ["08:00", "00:00"],
             tuesday: ["08:00", "00:00"],
@@ -130,7 +130,7 @@ db.pubs.insert([
         postCode: "G12 0AU", 
         phone: "0141 341 1130",
         email: "",
-        facilites: ["Broadcasts Live News", "BT Sport", "Children Welcome", "Licensed Outdoor Area", "Projector and Screen", "Sky Sports", "TV Screens", "WiFi", "Baby Change", "Step Free Access"],
+        facilities: ["Broadcasts Live News", "BT Sport", "Children Welcome", "Licensed Outdoor Area", "Projector and Screen", "Sky Sports", "TV Screens", "WiFi", "Baby Change", "Step Free Access"],
         openingTimes: {
             monday: ["08:00", "00:00"],
             tuesday: ["08:00", "00:00"],
@@ -154,7 +154,7 @@ db.pubs.insert([
         postCode: "PA3 2ST", 
         phone: "0141 848 4877",
         email: "",
-        facilites: ["Airport Pub", "Baby Changing", "Broadcasts Live News", "Children Welcome", "Step Free Access", "TV Screens", "WiFi"],
+        facilities: ["Airport Pub", "Baby Changing", "Broadcasts Live News", "Children Welcome", "Step Free Access", "TV Screens", "WiFi"],
         openingTimes: {
             monday: ["04:00", "23:00"],
             tuesday: ["04:00", "23:00"],
@@ -178,7 +178,7 @@ db.pubs.insert([
         postCode: "DD1 1SP", 
         phone: "01382 225 251",
         email: "",
-        facilites: ["Broadcasts Live News", "Children Welcome", "WiFi", "Step Free Access", "TV Screens", "Licensed Outdoor Area"],
+        facilities: ["Broadcasts Live News", "Children Welcome", "WiFi", "Step Free Access", "TV Screens", "Licensed Outdoor Area"],
         openingTimes: {
             monday: ["08:00", "00:00"],
             tuesday: ["08:00", "00:00"],
@@ -202,7 +202,7 @@ db.pubs.insert([
         postCode: "IV1 1EN", 
         phone: "01463 251 830",
         email: "",
-        facilites: ["", "", "", "", "", "", "", "",],
+        facilities: ["", "", "", "", "", "", "", "",],
         openingTimes: {
             monday: ["07:00", "01:00"],
             tuesday: ["07:00", "01:00"],
@@ -226,7 +226,7 @@ db.pubs.insert([
         postCode: "AB51 3QQ",  
         phone: "01467 626 780",
         email: "",
-        facilites: ["Children Welcome", "Licensed Outdoor Area", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
+        facilities: ["Children Welcome", "Licensed Outdoor Area", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
         openingTimes: {
             monday: ["09:00", "23:30"],
             tuesday: ["09:00", "23:30"],
@@ -250,7 +250,7 @@ db.pubs.insert([
         postCode: "AB42 1TH",  
         phone: "01779 482 500",
         email: "",
-        facilites: ["Children Welcome", "Licensed Outdoor Area", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
+        facilities: ["Children Welcome", "Licensed Outdoor Area", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
         openingTimes: {
             monday: ["08:00", "23:00"],
             tuesday: ["08:00", "23:00"],
@@ -274,7 +274,7 @@ db.pubs.insert([
         postCode: "PH1 5LQ",  
         phone: "01738 580 457",
         email: "",
-        facilites: ["Broadcasts Live News", "Children Welcome", "WiFi", "TV Screens", "Step Free Access", "Licensed Outdoor Area", "Order & Pay"],
+        facilities: ["Broadcasts Live News", "Children Welcome", "WiFi", "TV Screens", "Step Free Access", "Licensed Outdoor Area", "Order & Pay"],
         openingTimes: {
             monday: ["08:00", "23:00"],
             tuesday: ["08:00", "23:00"],
@@ -298,7 +298,7 @@ db.pubs.insert([
         postCode: "FK8 1AT",  
         phone: "01786 460 317",
         email: "",
-        facilites: ["Children Welcome", "Licensed Outdoor Area", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
+        facilities: ["Children Welcome", "Licensed Outdoor Area", "TV Screens", "WiFi", "Baby Changing", "Step Free Access"],
         openingTimes: {
             monday: ["08:00", "00:00"],
             tuesday: ["08:00", "00:00"],
