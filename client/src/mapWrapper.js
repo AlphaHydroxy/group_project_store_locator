@@ -49,7 +49,7 @@ MapWrapper.prototype.addInitListener = function(outerCallback, innerCallback){
                     // Clear any existing markers
                     self.clearMarkers();
                     // Add a marker to indicate the user's position
-                    self.addMarker(pos, iconList.icons["user"]);
+                    self.addMarker(pos, iconList.pathTo["user"]);
                     // Re-center the map at the user's co-ordinates
                     self.setCenter(pos);
                     // Set map zoom to show a decent area around the user
