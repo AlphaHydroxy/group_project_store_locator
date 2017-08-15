@@ -1,13 +1,11 @@
 var MapWrapper = require('./mapWrapper');
 var Venues = require('./models/venues');
-<<<<<<< HEAD
+
 var Comments = require('./models/comments');
-=======
 var Icons = require('./models/icons');
 var iconList = new Icons();
 var Weekdays = require('./models/weekDays');
 var weekDayFinder = new Weekdays();
->>>>>>> develop
 
 // Start point for code that runs whenever the browser hits this page
 var app = function(){
@@ -61,7 +59,6 @@ function onMapInitialised(mapWrapper){
 var onPlaceChanged = function(autoCompleteBox, mapWrapper){
     var place = autoCompleteBox.getPlace();
     if (!place.geometry) {
-        debugger;
         var close = document.getElementById('alert');
         close.style.display = "block";
         // Ji - We finish up in here when the user's entered something daft into the 
@@ -206,39 +203,6 @@ var refreshPubList = function(){
     var container = document.querySelector('#pub-list-flex-container');
     container.innerHTML = "";
 
-<<<<<<< HEAD
-function showVenuesOnMap(venues){
-}
-
-var switchToContact = function(){
-    var contact = document.querySelector("#contact-div")
-    contact.style.display = "block";
-    var main = document.querySelector("#main-div");
-    main.style.display = "none";
-}
-
-var switchToHome = function(){
-    var main = document.querySelector("#main-div")
-    main.style.display = "block";
-    var contact = document.querySelector("#contact-div")
-    contact.style.display = "none";
-}
-
-var submitComment = function(e){
-        e.preventDefault();
-        var newComment = {
-            name: e.target.name.value,
-            email: e.target.email.value,
-            title: e.target.title.value,
-            comment: e.target.comment.value
-        }
-        var comments = new Comments();
-        comments.add(newComment, function(data){
-            console.log(data);
-        });
-}
-
-=======
     // Create a new pub ul
     var pubList = document.createElement('ul');
     pubList.id = 'pub-list';
@@ -278,15 +242,46 @@ var round = function(value, decimals) {
   return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
 }
 
+function showVenuesOnMap(venues){
+}
+
+var switchToContact = function(){
+    var contact = document.querySelector("#contact-div")
+    contact.style.display = "block";
+    var main = document.querySelector("#main-div");
+    main.style.display = "none";
+}
+
+var switchToHome = function(){
+    var main = document.querySelector("#main-div")
+    main.style.display = "block";
+    var contact = document.querySelector("#contact-div")
+    contact.style.display = "none";
+}
+
+var submitComment = function(e){
+        e.preventDefault();
+        console.log(e);
+        var newComment = {
+            name: e.target.children.name.value,
+            email: e.target.children.email.value,
+            title: e.target.children.title.value,
+            comment: e.target.children.comments.value,
+        }
+        var comments = new Comments();
+        comments.add(newComment, function(data){
+            console.log(data);
+        });
+}
+
 // var createOpeningTimes = function(ul, venue){
 //     appendListItem(ul, venue.openingTimes.monday[0] + " : " + venue.openingTimes.monday[1]);
 //     appendListItem(ul, venue.openingTimes.tuesday[0] + " : " + venue.openingTimes.tuesday[1]);
 //     appendListItem(ul, venue.openingTimes.wednesday[0] + " : " + venue.openingTimes.wednesday[1]);
 //     appendListItem(ul, venue.openingTimes.thursday[0] + " : " + venue.openingTimes.thursday[1]);
 //     appendListItem(ul, venue.openingTimes.friday[0] + " : " + venue.openingTimes.friday[1]);
-//     appendListItem(ul, venue.openingTimes.saturday[0] + " : " + venue.openingTimes.saturday[1]);
 //     appendListItem(ul, venue.openingTimes.sunday[0] + " : " + venue.openingTimes.sunday[1]);
+//     appendListItem(ul, venue.openingTimes.saturday[0] + " : " + venue.openingTimes.saturday[1]);
 // };
->>>>>>> develop
 
 window.addEventListener('load', app);

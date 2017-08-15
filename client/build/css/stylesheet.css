@@ -407,8 +407,46 @@ footer{
     width: 150px;
     text-align: center;
   }
+}
 
-  h2{
+/* CONTACT US PAGE BELOW */
+
+  .contact-header{
+  margin: 12px;
+  text-align: center;
+}
+
+#form-flex-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  flex-direction: column;
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 3px;
+  color: white;
+}
+
+input{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 3px;
+  border-radius: 30px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width: 250px;
+}
+
+.message-box{
+  height: 150px;
+  width: 250px;
+}
+
+input:text{
   text-align: center;
 }
 
@@ -423,16 +461,23 @@ footer{
   flex-direction: column;
   justify-content: space-around;
   text-align: center;
+  padding-top: 5px;
 }
 
-#profile_pic{
-  width: 500px;
-  height: 500px;
+.profile_pic{
+  width: 100px;
+  height: 100px;
 }
 
-#submit-button{
-  width: 30px;
-  height: 10px;
-}
-
+.submit-button{
+  width: 260px;
+  height: 25px;
+  padding: 3px;
+  border-radius: 30px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

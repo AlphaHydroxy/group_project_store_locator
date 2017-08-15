@@ -168,32 +168,35 @@
         <div id=map></div>
       </div>
     </div>
-<<<<<<< HEAD
       </div> 
   <div id="contact-div">
 
-    <h2> Contact Us </h2>
-     <p> </p>
-
-    <div>
+    <div id="form-flex-wrapper">
+      <h2 class="contact-header"> Contact Us </h2>
       <form id="comments-form" action="/api/comments" method="post">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" />
+        <input type="text" id="name" name="name" placeholder="e.g John Smith"/>
+
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" />
-        <label for="title">Title:</label>
-        <input type="text" id="title" name="title" />
+        <input type="email" id="email" name="email" placeholder="123@internet.com"/>
+
+        <label for="title">Comment Subject:</label>
+        <input type="text" id="title" name="title" placeholder="subject..."/>
+
         <label for="comments">Comments:</label>
-        <input type="text" id="comments" name="comments" />
-        <button id="submit-button" type="submit" value="Submit" />
+        <input class="message-box" type="text" id="comments" name="comments" placeholder="leave us a message..."/>
+        <button class="submit-button" type="submit" value="Submit"/>
       </form>
+       <text-area rows="5" cols="50" form="comments-form">Submit Comments</text-area> 
     </div>
+
+    <p> </p>
    
     <div id="profile_flex_container">
        <div id="single_student_profile_container">
         <h1>Dale</h1>
         <ul>
-          <img id="profile_pic" src="https://avatars2.githubusercontent.com/u/2522582?v=4&s=460">
+          <img class="profile_pic" src="https://avatars2.githubusercontent.com/u/2522582?v=4&s=460">
           <!-- "https://github.com/goobering">GitHub -->
             </ul>
           </ul>
@@ -203,7 +206,7 @@
         <div id="single_student_profile_container">
         <h1>Jia</h1>
         <ul>
-          <img id="profile_pic" src="https://avatars3.githubusercontent.com/u/12969902?v=4&s=460">
+          <img class="profile_pic" src="https://avatars3.githubusercontent.com/u/12969902?v=4&s=460">
           <!-- "https://github.com/AlphaHydroxy">GitHub -->
             </ul>
           </ul>
@@ -213,7 +216,7 @@
          <div id="single_student_profile_container">
         <h1>Davie</h1>
         <ul>
-          <img id="profile_pic"
+          <img class="profile_pic"
           src="https://avatars2.githubusercontent.com/u/27961785?v=4&s=460">
           <!-- "https://github.com/clarkee013">GitHub -->
             </ul>
@@ -226,10 +229,6 @@
 
   </div>
     <footer>Davie&copy Daleo&copy Jia&copy</footer>
-=======
-    </div>
-      <footer>Davie&copy Daleo&copy Jia&copy</footer>
->>>>>>> develop
       <script type="text/javascript" src="javascript/styles.js"></script>
       <script type="text/javascript" src="javascript/bundle.js"></script>
   </body>

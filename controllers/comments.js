@@ -17,9 +17,9 @@ commentRouter.post('/', function(req, res){
         comment: req.body.comment
     });
     commentQuery.add(comment, function(){
-        res.redirect("/")
+        res.redirect('/')
     })
-    console.log(newComment);
+    // console.log(newComment);
 });
 
 module.exports = commentRouter;

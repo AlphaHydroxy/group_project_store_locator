@@ -19,8 +19,7 @@ Comments.prototype.makePostRequest = function(url, callback, payload){
 Comments.prototype.add = function(newComment, callback){
         var commentToAdd = JSON.stringify(newComment);
         console.log("New Comment", commentToAdd);
-        this.makePostRequest("http://localhost:3000/api/comments", commentToAdd, 
-        callback);
+        this.makePostRequest("http://localhost:3000/api/comments", callback, commentToAdd);
 };
 
 
