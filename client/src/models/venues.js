@@ -19,19 +19,6 @@ Venues.prototype.makePostRequest = function(url, callback, payload){
     request.send(payload);
 };
 
-// Venues.prototype.allCoords = function(callback){
-//     this.makeRequest('http://localhost:3000/api/venues/coords', function(){
-//       if(this.status !== 200){
-//         return;
-//       };
-//       var jsonString = this.responseText;
-//       var results = JSON.parse(jsonString);
-      
-//       var venues = Venues.prototype.populateVenues(results);
-//       callback(venues);
-//     });
-// };
-
 Venues.prototype.nearby = function(currentPos, callback){
     var currentPosString = JSON.stringify(currentPos);
     this.makePostRequest('http://localhost:3000/api/venues/nearby', callback, currentPosString);
