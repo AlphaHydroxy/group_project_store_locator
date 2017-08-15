@@ -196,6 +196,13 @@ input:focus{
   border-radius: 5px;
 }
 
+#pub-list-flex-container h1{
+  font-size: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #cc6600;
+}
+
 .pubs-header{
   border-bottom: 1px grey solid;
   width: 100%;
@@ -205,12 +212,13 @@ input:focus{
   border-radius: 3px;
   box-shadow: 3px 3px 5px grey;
   text-align: center;
-  background: -webkit-linear-gradient(lightgrey, grey);
+  /*background: -webkit-linear-gradient(rgb(204, 102, 0), grey);*/
+  background-color: rgb(204, 102, 0);
 }
 
 #slide-panel li{
   padding: 3px;
-  border-bottom: 1px black dotted;
+  border-bottom: 1px white dotted;
 }
 
 DETAILS[open] SUMMARY ~ * {
