@@ -201,13 +201,20 @@ input:focus{
   width: 100%;
 }
 
+#slide-panel{
+  border-radius: 3px;
+  box-shadow: 3px 3px 5px grey;
+  text-align: center;
+  background: -webkit-linear-gradient(lightgrey, grey);
+}
+
 #slide-panel li{
   padding: 3px;
-  border-top: 1px black dotted;
+  border-bottom: 1px black dotted;
 }
 
 DETAILS[open] SUMMARY ~ * {
- animation: sweep .5s ease-in-out;
+ animation: sweep .3s ease-in-out;
 }
 
 @keyframes sweep {
@@ -240,21 +247,6 @@ img{
   font-size: 16px;
   padding: 2px;
   border-radius: 5px;
-}
-
-#opening-hours-panel{
-  height: 0px;
-  width: 200px;
-  border-radius: 0px 8px 8px 8px;
-  /*overflow: hidden;*/
-  z-index: -1;
-  transition: height 0.2s linear 0s;
-}
-
-#slide-panel{
-  text-align: center;
-  background: -webkit-linear-gradient(lightgrey, grey);
-  
 }
 
 .pub-wrapper{

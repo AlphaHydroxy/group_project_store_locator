@@ -2,6 +2,8 @@ var MapWrapper = require('./mapWrapper');
 var Venues = require('./models/venues');
 var Icons = require('./models/icons');
 var iconList = new Icons();
+var Weekdays = require('./models/weekDays');
+var weekDayFinder = new Weekdays();
 
 // Start point for code that runs whenever the browser hits this page
 var app = function(){
@@ -101,6 +103,7 @@ function createVenueResultList(venues, pubList){
 
         pubItem.appendChild(getHeader(venue.name));
         pubItem.appendChild(getDetailsList(venue));
+        pubItem.appendChild(getOpeningDetails(venue.openingTimes));
 
         pubList.appendChild(pubItem);
     });
@@ -136,8 +139,49 @@ var getDetailsList = function(venue){
     var facilitiesList = getFacilitiesList(venue.facilities);
     ul.appendChild(facilitiesList);
 
+    // Sourced from: https://stackoverflow.com/a/27347503
+    var d = new Date();
+    var today = d.toLocaleString(window.navigator.language, {weekday: 'long'}).toLowerCase();
+
+    appendListItem(ul, 'Open today: ' + venue.openingTimes[today][0] + ' - ' + venue.openingTimes[today][1]);
+
     return ul;
 };
+
+var getOpeningDetails = function(openingTimes){
+    var details = document.createElement('details');
+    var summary = document.createElement('summary');
+    var ul = document.createElement('ul');
+    ul.id = 'slide-panel';
+
+    var monday = document.createElement('li');
+    monday.innerHTML = 'Mon ' + openingTimes.monday[0] + ' - ' + openingTimes.monday[1];
+    var tuesday = document.createElement('li');
+    tuesday.innerHTML = 'Mon ' + openingTimes.tuesday[0] + ' - ' + openingTimes.tuesday[1];
+    var wednesday = document.createElement('li');
+    wednesday.innerHTML = 'Mon ' + openingTimes.wednesday[0] + ' - ' + openingTimes.wednesday[1];
+    var thursday = document.createElement('li');
+    thursday.innerHTML = 'Mon ' + openingTimes.thursday[0] + ' - ' + openingTimes.thursday[1];
+    var friday = document.createElement('li');
+    friday.innerHTML = 'Mon ' + openingTimes.friday[0] + ' - ' + openingTimes.friday[1];
+    var saturday = document.createElement('li');
+    saturday.innerHTML = 'Mon ' + openingTimes.saturday[0] + ' - ' + openingTimes.saturday[1];
+    var sunday = document.createElement('li');
+    sunday.innerHTML = 'Mon ' + openingTimes.sunday[0] + ' - ' + openingTimes.sunday[1];
+
+    ul.appendChild(monday);
+    ul.appendChild(tuesday);
+    ul.appendChild(wednesday);
+    ul.appendChild(thursday);
+    ul.appendChild(friday);
+    ul.appendChild(saturday);
+    ul.appendChild(sunday);
+
+    details.appendChild(summary);
+    details.appendChild(ul);
+
+    return details;
+}
 
 var getFacilitiesList = function(facilities){
     var ul = document.createElement('ul');
