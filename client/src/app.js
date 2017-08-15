@@ -266,5 +266,4 @@ var submitComment = function(e){
     });
 }
 
-window.addEventListener('load', app);
 window.initMap = initMap;

@@ -22,5 +22,3 @@ var toggleDropDown = function(element){
   }
 
 }
-
-console.log("client/build/javascript");

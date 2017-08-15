@@ -543,7 +543,11 @@ footer{
 
 /* CONTACT US PAGE BELOW */
 
-  .contact-header{
+#contact-div{
+  display: none;
+}
+
+.contact-header{
   margin: 12px;
   text-align: center;
 }
