@@ -10,10 +10,7 @@ var mainMapWrapper;
 // Start point for code that runs whenever the Google Maps API loads
 var initMap = function(){
     // Set up handlers for nav menu options
-    var contactButton = document.querySelector("#contact-button");
-    contactButton.onclick = switchToContact;
-    var homeButton = document.querySelector("#home-button");
-    homeButton.onclick = switchToHome;
+    setNavHandlers();
 
     // Set up handler for submitting a comment
     var commentsForm = document.querySelector("#comments-form");
@@ -37,6 +34,13 @@ var initMap = function(){
     // Try to locate the user through geolocation and update map accordingly
     mainMapWrapper.locateUser(onLocatedUser);
 };
+
+var setNavHandlers = function(){
+    var contactButton = document.querySelector("#contact-button");
+    contactButton.onclick = switchToContact;
+    var homeButton = document.querySelector("#home-button");
+    homeButton.onclick = switchToHome;
+}
 
 // Puts a map on the page, sets default position
 var getMapWrapper = function(){
@@ -153,23 +157,31 @@ var getHeader = function(text){
 var getDetailsList = function(venue){
     var ul = document.createElement('ul');
 
-    appendListItem(ul, round(venue.distance, 1) + ' miles');
-    appendListItem(ul, venue.addressLine1);
-    appendListItem(ul, venue.addressLine2);
-    appendListItem(ul, venue.town);
-    appendListItem(ul, venue.region);
-    appendListItem(ul, venue.postCode);
-    appendListItem(ul, venue.phone);
-    appendListItem(ul, venue.email);
+    
+    // <li class="facilities"></li>
+    // <li class="open-today">open today: 12pm - 1am</li>
+
+    appendListItem(ul, round(venue.distance, 1) + ' miles', 'distance');
+    appendListItem(ul, venue.addressLine1, 'addy-1');
+    appendListItem(ul, venue.addressLine2, 'addy-2');
+    appendListItem(ul, venue.town, 'town');
+    appendListItem(ul, venue.region, 'region');
+    appendListItem(ul, venue.postCode, 'postcode');
+    appendListItem(ul, venue.phone, 'phone-no');
+    appendListItem(ul, venue.email, 'email');
 
     var facilitiesList = getFacilitiesList(venue.facilities);
-    ul.appendChild(facilitiesList);
+    var facilitiesItem = document.createElement('li');
+    facilitiesItem.class = 'facilities';
+    facilitiesItem.appendChild(facilitiesList);
+
+    ul.appendChild(facilitiesItem);
 
     // Sourced from: https://stackoverflow.com/a/27347503
     var d = new Date();
     var today = d.toLocaleString(window.navigator.language, {weekday: 'long'}).toLowerCase();
 
-    appendListItem(ul, 'Open today: ' + venue.openingTimes[today][0] + ' - ' + venue.openingTimes[today][1]);
+    appendListItem(ul, 'Open today: ' + venue.openingTimes[today][0] + ' - ' + venue.openingTimes[today][1], 'open-today');
 
     return ul;
 };
@@ -213,8 +225,11 @@ var createListItem = function(text){
     return li;
 };
 
-var appendListItem = function(element, text) {
+var appendListItem = function(element, text, className) {
     var li = createListItem(text);
+    if(className !== undefined){
+        li.className = className;
+    }
     element.appendChild(li);
 };
 
