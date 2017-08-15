@@ -124,6 +124,7 @@ var getHeader = function(text){
 var getDetailsList = function(venue){
     var ul = document.createElement('ul');
 
+    appendListItem(ul, round(venue.distance, 1) + ' miles');
     appendListItem(ul, venue.addressLine1);
     appendListItem(ul, venue.addressLine2);
     appendListItem(ul, venue.town);
@@ -141,7 +142,6 @@ var getDetailsList = function(venue){
 var getFacilitiesList = function(facilities){
     var ul = document.createElement('ul');
     facilities.forEach(function(facility){
-        // appendListItem(ul, facility);
         appendListImgItem(ul, iconList.pathTo[facility]);
     });
     return ul;
@@ -186,18 +186,10 @@ var appendListImgItem = function(element, path){
     element.appendChild(li);
 };
 
-// var createPubDetails = function(ul, venue) {
-//     appendListItem(ul, venue.name);
-//     appendListItem(ul, venue.addressLine1);
-//     appendListItem(ul, venue.addressLine2);
-//     appendListItem(ul, venue.town);
-//     appendListItem(ul, venue.region);
-//     appendListItem(ul, venue.postCode);
-//     appendListItem(ul, venue.phone);
-//     appendListItem(ul, venue.email);
-//     appendListItem(ul, venue.facilites);
-//     // button?
-// };
+// Sourced from: http://www.jacklmoore.com/notes/rounding-in-javascript/
+var round = function(value, decimals) {
+  return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
 
 // var createOpeningTimes = function(ul, venue){
 //     appendListItem(ul, venue.openingTimes.monday[0] + " : " + venue.openingTimes.monday[1]);
