@@ -72,7 +72,7 @@ body{
 
   .nav-child:hover{
     color: #DB9E06;
-    transition: .8s;
+    transition: .5s;
     border-bottom: 1px orange solid;
     cursor: pointer;
   }
@@ -157,21 +157,19 @@ input:focus{
 }
 
 #pub-list-flex-container{
-<<<<<<< HEAD
   overflow: auto;
   /*height: 400px;*/
-  width: 400px;
-=======
+  /*width: 400px;*/
   /* overflow: auto; */
-  height: 400px;
->>>>>>> 9371146f245a8920a00caa62b2a5dbf7672a5c92
+  /*height: 400px;*/
+
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   margin: 0 auto;
   padding: 50px 50px 50px 50px;
-  border: 1px grey solid;
+ /* border: 1px grey solid;*/
   font-family: 'Acme', sans-serif;
 }
 
