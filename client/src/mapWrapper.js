@@ -82,7 +82,7 @@ MapWrapper.prototype.showRoute = function(origin, destination){
                 };
             });
         };
-        
+
         this.directionsService.route({
             origin: origin,
             destination: this.routeMarkers[this.routeMarkers.length - 1].position,
@@ -97,6 +97,12 @@ MapWrapper.prototype.showRoute = function(origin, destination){
         }.bind(this));
     };
 };
+
+MapWrapper.prototype.clearRouteMarkers = function(){
+    while (this.routeMarkers.length) {
+        this.routeMarkers.pop();
+    };
+}
 
 MapWrapper.prototype.clearRoute = function(){
     this.directionsDisplay.set('directions', null);
@@ -149,11 +155,14 @@ MapWrapper.prototype.handleMarkerClick = function(marker, context){
     });
     
     if (selecting) {
-        context.routeMarkers.push(marker);
         context.clearRoute();
+        context.routeMarkers.push(marker);  
+
         context.showRoute(originMarker.position);
     } else {
         context.clearRoute();
+        context.clearRouteMarkers();
+        
         context.showRoute(originMarker.position, marker.position);
     };
 };

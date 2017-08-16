@@ -79,6 +79,7 @@ function onPlaceChanged(){
     }
 
     mainMapWrapper.clearRoute();
+    mainMapWrapper.clearRouteMarkers();
     mainMapWrapper.clearMarkers();
     mainMapWrapper.setCenter(place.geometry.location);
     mainMapWrapper.setZoom(12);
@@ -153,6 +154,9 @@ function createVenueResultList(venues, pubList){
         pubItem.appendChild(getHeader(venue.name));
         pubItem.appendChild(getDetailsList(venue));
         pubItem.appendChild(getOpeningDetails(venue.openingTimes));
+
+        var br = document.createElement('break');
+        pubItem.appendChild(br);
 
         pubList.appendChild(pubItem);
     });
