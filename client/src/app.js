@@ -169,7 +169,6 @@ var getDetailsList = function(venue){
     appendListItem(ul, venue.postCode, 'postcode');
     appendListItem(ul, venue.phone, 'phone-no');
     appendListItem(ul, venue.email, 'email');
-
     var facilitiesList = getFacilitiesList(venue.facilities);
     var facilitiesItem = document.createElement('li');
     facilitiesItem.class = 'facilities';
