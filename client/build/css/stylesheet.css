@@ -135,7 +135,6 @@ body{
 #navbar{
   background-color: #000000;
   width: 100%;
-  box-shadow: 5px 5px 5px grey;
 }
 
 #nav-container{
@@ -187,7 +186,6 @@ body{
   width: 80%;
   margin: 0 auto;
   border-radius: 5px;
-  box-shadow: 5px 5px 5px grey;
 }
 
 #search-wrapper p{
@@ -208,7 +206,6 @@ body{
   color: grey;
   width: 250px;
   text-align: center;
-  box-shadow: 2px 2px 5px grey;
 }
 
 input:focus{
@@ -265,7 +262,6 @@ input:focus{
   border: 1px grey solid;
   font-family: 'Acme', sans-serif;
   background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 5px 5px 5px grey;
   border-radius: 5px;
 }
 
@@ -277,8 +273,19 @@ input:focus{
 }
 
 .pubs-header{
-  border-bottom: 1px grey solid;
+  border-bottom: 3px grey dotted;
   width: 100%;
+  font-size: 22px;
+}
+
+.facilities-list{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.facilities-list li{
+  padding: 3px;
 }
 
 #slide-panel{
@@ -332,10 +339,14 @@ a{
   padding: 20px;
 }
 
+#map-flex-container p{
+  padding: 10px;
+  text-align: center;
+}
+
 #map {
     height: 100%;
     border: 1px black solid;
-    box-shadow: 5px 5px 5px grey;
 }
 
 .affiliate{
