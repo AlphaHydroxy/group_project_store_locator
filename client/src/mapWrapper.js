@@ -3,6 +3,7 @@ var iconList = new Icons();
 
 var MapWrapper = function(container, center, zoomLevel){
     this.markers = [];
+    this.routeMarkers = [];
     this.map = new google.maps.Map(container, {
         center: center,
         zoom: zoomLevel
@@ -19,15 +20,15 @@ MapWrapper.prototype.getMap = function(){
 
 MapWrapper.prototype.getAutoComplete = function(){
     return this.autoComplete;
-}
+};
 
 MapWrapper.prototype.getDirectionsService = function(){
     return this.directionsService;
-}
+};
 
 MapWrapper.prototype.getDirectionsDisplay = function(){
     return this.directionsDisplay;
-}
+};
 
 MapWrapper.prototype.getMarkers = function(){
     return this.markers;
@@ -48,7 +49,7 @@ MapWrapper.prototype.showRoute = function(origin, destination){
     this.directionsService.route({
         origin: origin,
         destination: destination,
-        travelMode: google.maps.TravelMode.WALKING
+        travelMode: 'WALKING'
     }, function(response, status){
         if(status === 'OK'){
             this.directionsDisplay.setDirections(response);
@@ -60,7 +61,7 @@ MapWrapper.prototype.showRoute = function(origin, destination){
 
 MapWrapper.prototype.clearRoute = function(){
     this.directionsDisplay.set('directions', null);
-}
+};
 
 MapWrapper.prototype.connectAutoComplete = function(element){
     this.autoComplete = new google.maps.places.Autocomplete(element);
@@ -101,16 +102,23 @@ MapWrapper.prototype.locateUser = function(callback){
         // Do stuff if user declines geolocation or something bad has happened
         console.log("Geolocation error occurred. browserHasGeolocation is: " + browserHasGeolocation.message);
     };
-}
+};
 
-MapWrapper.prototype.handleMarkerClick = function(marker, context){
+MapWrapper.prototype.handleMarkerClick = function(event, marker, context){
     var destinationMarker = context.markers.find(function(markerElement){
         return markerElement.icon === '../img/user.png';
     });
+    
+    if (event.ctrlKey || event.metaKey) {
+        debugger;
+        context.routeMarkers.push(marker);
+    }
+    debugger;
+    console.log(context.routeMarkers);
 
     context.clearRoute();
     context.showRoute(marker.position, destinationMarker.position);
-}
+};
 
 // Adds a marker to the map at the given co-ordinates
 MapWrapper.prototype.addMarker = function(coords, iconPath, isVenue){
@@ -123,8 +131,9 @@ MapWrapper.prototype.addMarker = function(coords, iconPath, isVenue){
     
     if(isVenue){
         var self = this;
-        marker.addListener('click', function(){
-            self.handleMarkerClick(marker, self);
+        marker.addListener('click', function(event){
+            debugger;
+            self.handleMarkerClick(event, marker, self);
         });
     };
 
