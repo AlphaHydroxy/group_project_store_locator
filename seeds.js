@@ -202,7 +202,7 @@ db.pubs.insert([
         postCode: "IV1 1EN", 
         phone: "01463 251 830",
         email: "",
-        facilities: ["", "", "", "", "", "", "", "",],
+        facilities: ["Accomodation", "Children Welcome", "WiFi", "Meeting Facilities", "Broadcasts Live News", "TV Screens", "Baby Changing", "Step Free Access",],
         openingTimes: {
             monday: ["07:00", "01:00"],
             tuesday: ["07:00", "01:00"],
