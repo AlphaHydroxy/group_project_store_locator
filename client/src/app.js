@@ -212,7 +212,6 @@ var getOpeningDetails = function(openingTimes){
 var getFacilitiesList = function(facilities){
     var ul = document.createElement('ul');
     ul.className = 'facilities-list';
-
     facilities.forEach(function(facility){
         appendListImgItem(ul, iconList.pathTo[facility]);
     });
