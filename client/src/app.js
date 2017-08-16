@@ -128,6 +128,14 @@ var refreshPubList = function(){
     var container = document.querySelector('#pub-list-flex-container');
     container.innerHTML = "";
 
+    // Create a header for the pub list
+    var header = document.createElement('div');
+    header.className = 'pubs-header';
+    header.innerHTML = 'Pubs near you:';
+
+    // Add the header to its container
+    container.appendChild(header);
+    
     // Create a new pub ul
     var pubList = document.createElement('ul');
     pubList.id = 'pub-list';
