@@ -267,7 +267,7 @@ input:focus{
 
 #pub-list-flex-container h1{
   font-size: 30px;
-  padding-top: 5px;
+  padding-top: 20px;
   padding-bottom: 5px;
   color: #cc6600;
 }
@@ -476,6 +476,10 @@ footer{
   #media-container{
     display: none;
   }
+
+.pub-route{
+  display: none;
+}
 
   #navbar{
     position: fixed;
