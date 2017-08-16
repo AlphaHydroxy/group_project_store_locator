@@ -1,12 +1,10 @@
 var toggleOpeningHours = function(element){
-  var panel = document.getElementById(element), navarrow = document.getElementById("navarrow"), maxHeight = "200px";
+  var panel = document.getElementById(element);
   if(panel.style.height == maxHeight){
     panel.style.height = '0px';
-    navarrow.innerHTML = "&#9662;";
   }
   else{
     panel.style.height = maxHeight;
-    navarrow.innerHTML = "&#9652;";
   }
 }
 
@@ -20,5 +18,4 @@ var toggleDropDown = function(element){
   else{
     menuPanel.style.height = menuHeight;
   }
-
 }

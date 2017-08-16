@@ -272,6 +272,29 @@ input:focus{
   color: #cc6600;
 }
 
+#pub-list-flex-container .distance{
+  font-style: italic;
+  font-size: 18px;
+}
+
+#pub-list-flex-container .open-today{
+  animation-name: flash;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-play-state: running;
+}
+
+@keyframes flash{
+  from {color: yellow;}
+  to {color: orange;}
+}
+
+#pub-list-flex-container details summary{
+  text-decoration: underline;
+}
+
 .pubs-header{
   border-bottom: 3px grey dotted;
   width: 100%;
