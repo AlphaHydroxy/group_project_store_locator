@@ -18,7 +18,7 @@ var Icons = function(){
         'Baby Change': '../img/facilities/baby-changing.png', 
         'Airport Pub': '../img/facilities/airport-bar.png', 
         'Order & Pay': '../img/facilities/touch-and-pay.png',
-        'Accomodation': '../img/facilities/accomodation.png'
+        'Accomodation': '../img/facilities/bed.png'
     };
 };
 
