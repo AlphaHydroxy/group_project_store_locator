@@ -60,6 +60,9 @@ var getMapWrapper = function(){
     // Establish event handler for user changing location in search box
     mapWrapper.setPlaceChangedHandler(onPlaceChanged);
     
+    // Hook up directionsService and directionsDisplay to map
+    mapWrapper.connectDirections();
+ 
     return mapWrapper;
 };
 
@@ -75,6 +78,7 @@ function onPlaceChanged(){
         return;
     }
 
+    mainMapWrapper.clearRoute();
     mainMapWrapper.clearMarkers();
     mainMapWrapper.setCenter(place.geometry.location);
     mainMapWrapper.setZoom(12);
@@ -115,7 +119,7 @@ function onFetchedVenues(venueResult){
 
 var addMarkersWithIcons = function(positions, iconKey){
     positions.forEach(function(venue){
-        mainMapWrapper.addMarker({lat: venue.coords.lat, lng: venue.coords.long}, iconList.pathTo[iconKey])
+        mainMapWrapper.addMarker({lat: venue.coords.lat, lng: venue.coords.long}, iconList.pathTo[iconKey], true)
     });
 };
 
