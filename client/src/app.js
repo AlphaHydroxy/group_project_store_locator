@@ -152,7 +152,7 @@ function createVenueResultList(venues, pubList){
 
 var getHeader = function(text){
     var h1 = document.createElement("h1");
-    h1.class = "pub-title";
+    h1.className = "pub-title";
     h1.innerText = text;
 
     return h1;
@@ -160,10 +160,6 @@ var getHeader = function(text){
 
 var getDetailsList = function(venue){
     var ul = document.createElement('ul');
-
-    
-    // <li class="facilities"></li>
-    // <li class="open-today">open today: 12pm - 1am</li>
 
     appendListItem(ul, round(venue.distance, 1) + ' miles', 'distance');
     appendListItem(ul, venue.addressLine1, 'addy-1');
@@ -215,6 +211,8 @@ var getOpeningDetails = function(openingTimes){
 
 var getFacilitiesList = function(facilities){
     var ul = document.createElement('ul');
+    ul.className = 'facilities-list';
+
     facilities.forEach(function(facility){
         appendListImgItem(ul, iconList.pathTo[facility]);
     });
