@@ -8,10 +8,21 @@
     <link rel="shortcut icon" type="image/png" href="img/favicon.png">
     <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
     <script type="text/javascript" src="javascript/bundle.js"></script>    
+    <script type="text/javascript">
+      var toggleDropDown = function(element){
+        var menuPanel = document.getElementById(element);
+        var menuHeight = "169px";
+
+        if(menuPanel.style.height == menuHeight){
+          menuPanel.style.height = '0px';
+        }
+        else{
+          menuPanel.style.height = menuHeight;
+        }
+      }
+    </script>
   </head>
   <body>
-
-  
 
   <section id="navbar">
     <nav id="nav-container">
@@ -58,19 +69,19 @@
       <div id="page-flex-container">
         <div id="pub-list-flex-container">
           <div class="pubs-header">Pubs in your area:</div>
-        
         </div>
 
         <div id="map-flex-container">
-        <p>Click on a marker to start you sesh!</p>
+          <p>Click on a marker to start your sesh!</p>
           <div id=map></div>
-          
-          </div>
-          <div class="affiliate">
-            <a href="http://www.tennents.com/"><img class="tennents-img" src="img/tennents.png" alt="tennents"></a>
-            <a href="https://www.brewdog.com/"><img class="brewdog-img" src="img/brewdog-logo.gif" alt="brewdog"/></a>
-            <a href="https://www.drinkaware.co.uk/"><img class="drinkaware-img" src="img/drink_aware.png" alt=drinkaware></a>
         </div>
+
+      </div>
+      <div class="affiliate">
+        <a href="http://www.tennents.com/"><img class="tennents-img" src="img/tennents.png" alt="tennents"></a>
+        <a href="https://www.brewdog.com/"><img class="brewdog-img" src="img/brewdog-logo.gif" alt="brewdog"/></a>
+        <a href="https://www.drinkaware.co.uk/"><img class="drinkaware-img" src="img/drink_aware.png" alt=drinkaware></a>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/LspOrIkQKk4" frameborder="0" allowfullscreen></iframe>
       </div>
     </div> 
 
@@ -128,22 +139,11 @@
       </div>
     </div>
     
-      <!-- <div id="map-flex-container">
-        <div id=map></div>
-        
-      </div>
-    </div>
-    </div>
-    </div>
-    <div class="affiliate">
-      <a href="http://www.tennents.com/"><img class="tennents-img" src="img/tennents.png" alt="tennents"></a>
-      <a href="https://www.brewdog.com/"><img class="brewdog-img" src="img/brewdog-logo.gif" alt="brewdog"/></a>
-      <a href="https://www.drinkaware.co.uk/"><img class="drinkaware-img" src="img/drink_aware.png" alt=drinkaware></a>
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/T1l1oCyCZKo" frameborder="0" allowfullscreen></iframe>
-    </div> -->
+
+      
+
 
     <footer>Davie&copy Daleo&copy Jia&copy</footer>
-    <script type="text/javascript" src="src/models/styles.js"></script>
     <script src='https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap'></script>
   </body>
 </html>
