@@ -1,6 +1,18 @@
 var Icons = require('./models/icons');
 var iconList = new Icons();
 
+// Sourced from: https://stackoverflow.com/a/21759569
+var selecting = false;
+var selectedMarkers = [];
+
+window.onkeydown = function(e) {
+  selecting = ((e.keyIdentifier == 'Control') || (e.ctrlKey == true) || (e.metaKey == true));
+}
+window.onkeyup = function(e) {
+  selecting = false;
+}
+///////////
+
 var MapWrapper = function(container, center, zoomLevel){
     this.markers = [];
     this.routeMarkers = [];
@@ -46,7 +58,8 @@ MapWrapper.prototype.connectDirections = function(){
 };
 
 MapWrapper.prototype.showRoute = function(origin, destination){
-    this.directionsService.route({
+    if(destination !== undefined){
+        this.directionsService.route({
         origin: origin,
         destination: destination,
         travelMode: 'WALKING'
@@ -57,6 +70,32 @@ MapWrapper.prototype.showRoute = function(origin, destination){
             window.alert('Directions request failed due to ' + status);
         }
     }.bind(this));
+    } else {
+        var rawWaypts = this.routeMarkers.slice(0, this.routeMarkers.length - 1);
+
+        var waypts = [];
+        if(rawWaypts.length > 0){
+            waypts = rawWaypts.map(function(waypt){
+                return {
+                    location: waypt.position,
+                    stopover: true
+                };
+            });
+        };
+        
+        this.directionsService.route({
+            origin: origin,
+            destination: this.routeMarkers[this.routeMarkers.length - 1].position,
+            waypoints: waypts,
+            travelMode: 'WALKING'
+        }, function(response, status){
+            if(status === 'OK'){
+                this.directionsDisplay.setDirections(response);
+            } else {
+                window.alert('Directions request failed due to ' + status);
+            }
+        }.bind(this));
+    };
 };
 
 MapWrapper.prototype.clearRoute = function(){
@@ -104,20 +143,19 @@ MapWrapper.prototype.locateUser = function(callback){
     };
 };
 
-MapWrapper.prototype.handleMarkerClick = function(event, marker, context){
-    var destinationMarker = context.markers.find(function(markerElement){
+MapWrapper.prototype.handleMarkerClick = function(marker, context){
+    var originMarker = context.markers.find(function(markerElement){
         return markerElement.icon === '../img/user.png';
     });
     
-    if (event.ctrlKey || event.metaKey) {
-        debugger;
+    if (selecting) {
         context.routeMarkers.push(marker);
-    }
-    debugger;
-    console.log(context.routeMarkers);
-
-    context.clearRoute();
-    context.showRoute(marker.position, destinationMarker.position);
+        context.clearRoute();
+        context.showRoute(originMarker.position);
+    } else {
+        context.clearRoute();
+        context.showRoute(originMarker.position, marker.position);
+    };
 };
 
 // Adds a marker to the map at the given co-ordinates
@@ -132,8 +170,7 @@ MapWrapper.prototype.addMarker = function(coords, iconPath, isVenue){
     if(isVenue){
         var self = this;
         marker.addListener('click', function(event){
-            debugger;
-            self.handleMarkerClick(event, marker, self);
+            self.handleMarkerClick(marker, self);
         });
     };
 
