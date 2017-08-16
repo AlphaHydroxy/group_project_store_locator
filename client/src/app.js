@@ -289,4 +289,16 @@ var submitComment = function(e){
     });
 }
 
+var toggleDropDown = function(element){
+  var menuPanel = document.getElementById(element);
+  var menuHeight = "169px";
+
+  if(menuPanel.style.height == menuHeight){
+    menuPanel.style.height = '0px';
+  }
+  else{
+    menuPanel.style.height = menuHeight;
+  }
+}
+
 window.initMap = initMap;
